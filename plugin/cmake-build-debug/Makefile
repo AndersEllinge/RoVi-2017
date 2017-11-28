@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/student/Desktop/workspace/clion-2017.2.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/student/clion-2017.2.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/student/Desktop/workspace/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
+RM = /home/student/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/Desktop/workspace/Rovi
+CMAKE_SOURCE_DIR = /home/student/workspace/RoVi-2017/plugin
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/Desktop/workspace/Rovi/cmake-build-debug
+CMAKE_BINARY_DIR = /home/student/workspace/RoVi-2017/plugin/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/student/Desktop/workspace/Rovi/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/student/workspace/clion-2017.2.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/student/clion-2017.2.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/student/workspace/clion-2017.2.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/student/clion-2017.2.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/workspace/Rovi/cmake-build-debug/CMakeFiles /home/student/Desktop/workspace/Rovi/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles /home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/workspace/Rovi/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,60 @@ src/moc_VisualServoing.cpp.s:
 	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.s
 .PHONY : src/moc_VisualServoing.cpp.s
 
+src/moc_vs.o: src/moc_vs.cpp.o
+
+.PHONY : src/moc_vs.o
+
+# target to build an object file
+src/moc_vs.cpp.o:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o
+.PHONY : src/moc_vs.cpp.o
+
+src/moc_vs.i: src/moc_vs.cpp.i
+
+.PHONY : src/moc_vs.i
+
+# target to preprocess a source file
+src/moc_vs.cpp.i:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.i
+.PHONY : src/moc_vs.cpp.i
+
+src/moc_vs.s: src/moc_vs.cpp.s
+
+.PHONY : src/moc_vs.s
+
+# target to generate assembly for a file
+src/moc_vs.cpp.s:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.s
+.PHONY : src/moc_vs.cpp.s
+
+src/vs.o: src/vs.cpp.o
+
+.PHONY : src/vs.o
+
+# target to build an object file
+src/vs.cpp.o:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vs.cpp.o
+.PHONY : src/vs.cpp.o
+
+src/vs.i: src/vs.cpp.i
+
+.PHONY : src/vs.i
+
+# target to preprocess a source file
+src/vs.cpp.i:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vs.cpp.i
+.PHONY : src/vs.cpp.i
+
+src/vs.s: src/vs.cpp.s
+
+.PHONY : src/vs.s
+
+# target to generate assembly for a file
+src/vs.cpp.s:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vs.cpp.s
+.PHONY : src/vs.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +276,12 @@ help:
 	@echo "... src/moc_VisualServoing.o"
 	@echo "... src/moc_VisualServoing.i"
 	@echo "... src/moc_VisualServoing.s"
+	@echo "... src/moc_vs.o"
+	@echo "... src/moc_vs.i"
+	@echo "... src/moc_vs.s"
+	@echo "... src/vs.o"
+	@echo "... src/vs.i"
+	@echo "... src/vs.s"
 .PHONY : help
 
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/workspace/Rovi
+# Install script for directory: /home/student/workspace/RoVi-2017/plugin
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/student/workspace/Rovi/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/student/workspace/RoVi-2017/plugin/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

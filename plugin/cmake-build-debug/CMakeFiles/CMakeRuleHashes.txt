@@ -1,3 +1,4 @@
 # Hashes of file build rules.
-bcbb759b758ba50bf7faf1b365cac9c5 qrc_resources.cpp
-4a1124a2315d3945c4cbeddd17123460 src/moc_VisualServoing.cpp
+da6b03a2bd2f9a327fbae0e13250596a qrc_resources.cpp
+23db983c79be3a57f9cbfe732f83e95e src/moc_VisualServoing.cpp
+5b9a990ed33ef6e7fdc807486c9c042a src/moc_vs.cpp

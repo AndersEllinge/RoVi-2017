@@ -4,9 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/student/Desktop/workspace/Rovi/cmake-build-debug/qrc_resources.cpp" "/home/student/Desktop/workspace/Rovi/cmake-build-debug/CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
-  "/home/student/Desktop/workspace/Rovi/src/VisualServoing.cpp" "/home/student/Desktop/workspace/Rovi/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o"
-  "/home/student/Desktop/workspace/Rovi/cmake-build-debug/src/moc_VisualServoing.cpp" "/home/student/Desktop/workspace/Rovi/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/qrc_resources.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/src/VisualServoing.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_VisualServoing.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_vs.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/src/vs.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/vs.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

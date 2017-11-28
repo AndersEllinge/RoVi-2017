@@ -50,18 +50,28 @@ private:
     static cv::Mat toOpenCVImage(const rw::sensor::Image& img);
     QWidget* createMarkerButtons();
 
+
     rw::kinematics::State _state;
     rw::models::WorkCell* _workcell;
 
     QTimer* _timer;
     QWidget* _markerButtons;
     QLabel* _camPicture;
+    QPushButton* _initButton;
     rwlibs::opengl::RenderImage *_textureRender, *_bgRender;
     rwlibs::simulation::GLFrameGrabber* _framegrabber;
+
+	rw::kinematics::Frame* _markerFrame;
+	rw::kinematics::Frame* _cameraFrame;
+	rw::kinematics::Frame* _base;
+	rw::models::Device::Ptr _device;
+	std::vector<double> _UV;
 
 private slots:
     void stateChangedListener(const rw::kinematics::State& state);
     void capture();
+    void init();
+	void testVisualServoing();
 };
 
 #endif

@@ -1,8 +1,11 @@
 file(REMOVE_RECURSE
   "src/moc_VisualServoing.cpp"
+  "src/moc_vs.cpp"
   "qrc_resources.cpp"
   "CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o"
+  "CMakeFiles/VisualServoing.dir/src/vs.cpp.o"
   "CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
+  "CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o"
   "CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
   "../libs/Debug/libVisualServoing.pdb"
   "../libs/Debug/libVisualServoing.so"

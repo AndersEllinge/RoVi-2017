@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/workspace/Rovi
+CMAKE_SOURCE_DIR = /home/student/workspace/RoVi-2017/plugin
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/workspace/Rovi/build
+CMAKE_BINARY_DIR = /home/student/workspace/RoVi-2017/plugin/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/workspace/Rovi/build/CMakeFiles /home/student/workspace/Rovi/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/workspace/RoVi-2017/plugin/build/CMakeFiles /home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/workspace/Rovi/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/workspace/RoVi-2017/plugin/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,60 @@ src/moc_VisualServoing.cpp.s:
 	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.s
 .PHONY : src/moc_VisualServoing.cpp.s
 
+src/moc_vs.o: src/moc_vs.cpp.o
+
+.PHONY : src/moc_vs.o
+
+# target to build an object file
+src/moc_vs.cpp.o:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o
+.PHONY : src/moc_vs.cpp.o
+
+src/moc_vs.i: src/moc_vs.cpp.i
+
+.PHONY : src/moc_vs.i
+
+# target to preprocess a source file
+src/moc_vs.cpp.i:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.i
+.PHONY : src/moc_vs.cpp.i
+
+src/moc_vs.s: src/moc_vs.cpp.s
+
+.PHONY : src/moc_vs.s
+
+# target to generate assembly for a file
+src/moc_vs.cpp.s:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.s
+.PHONY : src/moc_vs.cpp.s
+
+src/vs.o: src/vs.cpp.o
+
+.PHONY : src/vs.o
+
+# target to build an object file
+src/vs.cpp.o:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vs.cpp.o
+.PHONY : src/vs.cpp.o
+
+src/vs.i: src/vs.cpp.i
+
+.PHONY : src/vs.i
+
+# target to preprocess a source file
+src/vs.cpp.i:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vs.cpp.i
+.PHONY : src/vs.cpp.i
+
+src/vs.s: src/vs.cpp.s
+
+.PHONY : src/vs.s
+
+# target to generate assembly for a file
+src/vs.cpp.s:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vs.cpp.s
+.PHONY : src/vs.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +276,12 @@ help:
 	@echo "... src/moc_VisualServoing.o"
 	@echo "... src/moc_VisualServoing.i"
 	@echo "... src/moc_VisualServoing.s"
+	@echo "... src/moc_vs.o"
+	@echo "... src/moc_vs.i"
+	@echo "... src/moc_vs.s"
+	@echo "... src/vs.o"
+	@echo "... src/vs.i"
+	@echo "... src/vs.s"
 .PHONY : help
 
 

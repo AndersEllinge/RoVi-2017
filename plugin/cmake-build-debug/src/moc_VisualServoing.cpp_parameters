@@ -43,10 +43,10 @@
 -I/home/student/RobWork/RobWork/cmake/../ext/unzip
 -I/home/student/RobWork/RobWork/cmake/../ext/assimp/include
 -I/home/student/RobWork/RobWorkStudio/cmake/../ext/qtpropertybrowser/src
--I/home/student/Desktop/workspace/Rovi/cmake-build-debug
+-I/home/student/workspace/RoVi-2017/plugin/cmake-build-debug
 -DBOOST_DISABLE_ASSERTS
 -DBOOST_DISABLE_ASSERTS
 -DQT_NO_DEBUG
 -o
-/home/student/Desktop/workspace/Rovi/cmake-build-debug/src/moc_VisualServoing.cpp
-/home/student/Desktop/workspace/Rovi/src/VisualServoing.hpp
+/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_VisualServoing.cpp
+/home/student/workspace/RoVi-2017/plugin/src/VisualServoing.hpp

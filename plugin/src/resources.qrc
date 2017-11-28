@@ -1,5 +1,8 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-<file>pa_icon.png</file>
+    <file>pa_icon.png</file>
+    <file>../markers/Marker1.ppm</file>
+    <file>../markers/Marker2a.ppm</file>
+    <file>../markers/Marker3.ppm</file>
 </qresource>
 </RCC>
