@@ -290,6 +290,10 @@ void VisualServoing::detectMarkers() {
 
         cv::cvtColor(segmented, segmented, CV_BGR2RGB);
 
+        mc = ip::toRobotPoints(mc,segmented);
+
+        rw::common::Log::log().info() << "found points: " << mc << std::endl;
+
         // Show on QLabel
         QImage img(segmented.data, segmented.cols, segmented.rows, segmented.step, QImage::Format_RGB888);
         QPixmap p = QPixmap::fromImage(img);

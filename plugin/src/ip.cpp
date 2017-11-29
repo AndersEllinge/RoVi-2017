@@ -3,8 +3,8 @@
 
 cv::Mat ip::segmentateHSV(cv::Mat image){
 
-    int hueMin = 0, saturationMin = 0, valueMin = 0;
-    int hueMax = 255, saturationMax = 255, valueMax = 255;
+    int hueMin = 110, saturationMin = 0, valueMin = 0;
+    int hueMax = 180, saturationMax = 255, valueMax = 255;
 
     //convert to HSV
     cv::Mat HSV(image.rows, image.cols, CV_8UC3);
@@ -91,7 +91,7 @@ cv::Mat ip::drawPoints(std::vector<cv::Point2i> points, cv::Mat image){
     cv::Mat dst = image.clone();
 
     for (int i = 0; i < points.size(); i++) {
-        dst.at<cv::Vec3b>(points[i]) = cv::Vec3b(254,254,254);
+        dst.at<cv::Vec3b>(points[i]) = cv::Vec3b(0,0,255);
     }
 
     return dst;
