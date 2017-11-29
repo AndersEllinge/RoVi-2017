@@ -147,6 +147,12 @@
 		<Unit filename="/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_VisualServoing.cpp.rule">
 			<Option target="VisualServoing"/>
 		</Unit>
+		<Unit filename="/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_ip.cpp">
+			<Option target="VisualServoing"/>
+		</Unit>
+		<Unit filename="/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_ip.cpp.rule">
+			<Option target="VisualServoing"/>
+		</Unit>
 		<Unit filename="/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_vs.cpp">
 			<Option target="VisualServoing"/>
 		</Unit>
@@ -157,6 +163,12 @@
 			<Option target="VisualServoing"/>
 		</Unit>
 		<Unit filename="/home/student/workspace/RoVi-2017/plugin/src/VisualServoing.hpp">
+			<Option target="VisualServoing"/>
+		</Unit>
+		<Unit filename="/home/student/workspace/RoVi-2017/plugin/src/ip.cpp">
+			<Option target="VisualServoing"/>
+		</Unit>
+		<Unit filename="/home/student/workspace/RoVi-2017/plugin/src/ip.h">
 			<Option target="VisualServoing"/>
 		</Unit>
 		<Unit filename="/home/student/workspace/RoVi-2017/plugin/src/resources.qrc">

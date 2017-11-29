@@ -2646,6 +2646,8 @@ QtCore/qmetatype.h
 QtCore/qplugin.h
 -
 
+/home/student/workspace/RoVi-2017/plugin/build/src/moc_ip.cpp
+
 /home/student/workspace/RoVi-2017/plugin/build/src/moc_vs.cpp
 
 /home/student/workspace/RoVi-2017/plugin/src/VisualServoing.cpp
@@ -2659,6 +2661,8 @@ QtWidgets/QVBoxLayout
 -
 vs.h
 /home/student/workspace/RoVi-2017/plugin/src/vs.h
+ip.h
+/home/student/workspace/RoVi-2017/plugin/src/ip.h
 
 /home/student/workspace/RoVi-2017/plugin/src/VisualServoing.hpp
 rw/models/WorkCell.hpp
@@ -2690,6 +2694,22 @@ QPushButton
 QToolButton
 -
 QScrollArea
+-
+
+/home/student/workspace/RoVi-2017/plugin/src/ip.cpp
+ip.h
+/home/student/workspace/RoVi-2017/plugin/src/ip.h
+
+/home/student/workspace/RoVi-2017/plugin/src/ip.h
+opencv2/core.hpp
+-
+opencv2/highgui.hpp
+-
+opencv2/imgproc.hpp
+-
+functional
+-
+iostream
 -
 
 /home/student/workspace/RoVi-2017/plugin/src/vs.cpp

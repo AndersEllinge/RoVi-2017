@@ -5,6 +5,7 @@
 #include <QtWidgets/QVBoxLayout>
 
 #include "vs.h"
+#include "ip.h"
 
 #define focal 823.0
 #define z 0.5
@@ -23,6 +24,7 @@ VisualServoing::VisualServoing():
 	//create stuff we want in the plug in here
     _markerButtons = createMarkerButtons();
     _camPicture = new QLabel();
+    _processedPicture = new QLabel();
     _initButton = new QPushButton("Init");
 	//
 
@@ -30,6 +32,7 @@ VisualServoing::VisualServoing():
     verticalLayout->addWidget(_initButton);
 	verticalLayout->addWidget(_markerButtons);
     verticalLayout->addWidget(_camPicture);
+    verticalLayout->addWidget(_processedPicture);
     verticalLayout->addStretch(0);
     //verticalLayout->setAlignment(Qt::AlignTop);
 	//
@@ -91,7 +94,7 @@ void VisualServoing::close(){
 }
 
 cv::Mat VisualServoing::toOpenCVImage(const rw::sensor::Image& img) {
-    cv::Mat res(img.getHeight(),img.getWidth(), CV_8SC3);
+    cv::Mat res(img.getHeight(),img.getWidth(), CV_8UC3);
     res.data = (uchar*)img.getImageData();
     return res;
 }
@@ -121,6 +124,7 @@ void VisualServoing::capture() {
 void VisualServoing::stateChangedListener(const rw::kinematics::State &state){
 	_state = state;
     capture();
+    detectMarkers();
 }
 
 QWidget* VisualServoing::createMarkerButtons(){
@@ -152,6 +156,9 @@ QWidget* VisualServoing::createMarkerButtons(){
     layout->addWidget(btns[2],0,2);
     layout->addWidget(btns[3],0,3);
 
+    connect(btns[0], SIGNAL(pressed()), this, SLOT(loadMarker1()));
+    connect(btns[1], SIGNAL(pressed()), this, SLOT(loadMarker2()));
+    connect(btns[2], SIGNAL(pressed()), this, SLOT(loadMarker3()));
     connect(btns[3], SIGNAL(pressed()), this, SLOT(testVisualServoing()));
 
     markerButtons->setLayout(layout);
@@ -235,6 +242,63 @@ void VisualServoing::testVisualServoing() {
     rw::common::Log::log().info() << "backUV: " << dUVback[0] << " " << dUVback[1] << std::endl;
 
     //_UV = newUV;
+}
+
+void VisualServoing::loadMarker1() {
+    rw::sensor::Image::Ptr image = rw::loaders::ImageLoader::Factory::load("/home/student/workspace/RoVi-2017/plugin/markers/Marker1.ppm");
+    _textureRender->setImage(*image);
+    getRobWorkStudio()->updateAndRepaint();
+}
+
+void VisualServoing::loadMarker2() {
+
+}
+
+void VisualServoing::loadMarker3() {
+
+}
+
+void VisualServoing::detectMarkers() {
+    if (_framegrabber != NULL) {
+        // Get the image as a RW image
+        rw::kinematics::Frame* cameraFrame = _workcell->findFrame("CameraSim");
+        _framegrabber->grab(cameraFrame, _state);
+        const rw::sensor::Image& image = _framegrabber->getImage();
+
+        // Convert to OpenCV image
+        cv::Mat im = toOpenCVImage(image);
+        cv::Mat imflip;
+        cv::flip(im, imflip, 0);
+        cv::cvtColor(imflip,imflip,CV_RGB2BGR);
+
+        // Do Image processing here THIS IS COLOR SEGMENTATION
+        cv::Mat segmented = ip::segmentateHSV(imflip);
+        segmented = ip::opening(segmented, 0 ,3);
+        segmented = ip::closing(segmented, 0 ,3);
+
+        std::vector<std::vector<cv::Point> > contours = ip::findContours(segmented);
+
+        segmented = ip::drawContours(contours,segmented);
+
+        //Get the moments
+        std::vector<cv::Moments> mu = ip::getMu(contours);
+
+        //get the mass centers
+        std::vector<cv::Point2i> mc = ip::getCenterPoints(mu,contours);
+
+        segmented = ip::drawPoints(mc,segmented);
+
+        cv::cvtColor(segmented, segmented, CV_BGR2RGB);
+
+        // Show on QLabel
+        QImage img(segmented.data, segmented.cols, segmented.rows, segmented.step, QImage::Format_RGB888);
+        QPixmap p = QPixmap::fromImage(img);
+        unsigned int maxW = 400;
+        unsigned int maxH = 800;
+        _processedPicture->setPixmap(p.scaled(maxW,maxH,Qt::KeepAspectRatio));
+
+    }
+
 }
 
 

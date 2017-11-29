@@ -6,7 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/qrc_resources.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
   "/home/student/workspace/RoVi-2017/plugin/src/VisualServoing.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/src/ip.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/ip.cpp.o"
   "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_VisualServoing.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_ip.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o"
   "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_vs.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o"
   "/home/student/workspace/RoVi-2017/plugin/src/vs.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/vs.cpp.o"
   )

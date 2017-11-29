@@ -1,4 +1,4 @@
-/home/student/clion-2017.2.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/student/workspace/RoVi-2017/plugin
+/home/student/workspace/clion-2017.2.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/student/workspace/RoVi-2017/plugin
 -- Build type: Debug
 -- RobWork root: /home/student/RobWork/RobWork/
 -- warning: RobWork was not compiled with type:debug using type:relwithdebinfo instead!

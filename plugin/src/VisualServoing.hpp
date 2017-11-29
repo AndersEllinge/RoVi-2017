@@ -57,6 +57,7 @@ private:
     QTimer* _timer;
     QWidget* _markerButtons;
     QLabel* _camPicture;
+    QLabel* _processedPicture;
     QPushButton* _initButton;
     rwlibs::opengl::RenderImage *_textureRender, *_bgRender;
     rwlibs::simulation::GLFrameGrabber* _framegrabber;
@@ -70,8 +71,12 @@ private:
 private slots:
     void stateChangedListener(const rw::kinematics::State& state);
     void capture();
+    void detectMarkers();
     void init();
 	void testVisualServoing();
+    void loadMarker1();
+    void loadMarker2();
+    void loadMarker3();
 };
 
 #endif

@@ -177,6 +177,33 @@ src/VisualServoing.cpp.s:
 	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.s
 .PHONY : src/VisualServoing.cpp.s
 
+src/ip.o: src/ip.cpp.o
+
+.PHONY : src/ip.o
+
+# target to build an object file
+src/ip.cpp.o:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/ip.cpp.o
+.PHONY : src/ip.cpp.o
+
+src/ip.i: src/ip.cpp.i
+
+.PHONY : src/ip.i
+
+# target to preprocess a source file
+src/ip.cpp.i:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/ip.cpp.i
+.PHONY : src/ip.cpp.i
+
+src/ip.s: src/ip.cpp.s
+
+.PHONY : src/ip.s
+
+# target to generate assembly for a file
+src/ip.cpp.s:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/ip.cpp.s
+.PHONY : src/ip.cpp.s
+
 src/moc_VisualServoing.o: src/moc_VisualServoing.cpp.o
 
 .PHONY : src/moc_VisualServoing.o
@@ -203,6 +230,33 @@ src/moc_VisualServoing.s: src/moc_VisualServoing.cpp.s
 src/moc_VisualServoing.cpp.s:
 	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.s
 .PHONY : src/moc_VisualServoing.cpp.s
+
+src/moc_ip.o: src/moc_ip.cpp.o
+
+.PHONY : src/moc_ip.o
+
+# target to build an object file
+src/moc_ip.cpp.o:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o
+.PHONY : src/moc_ip.cpp.o
+
+src/moc_ip.i: src/moc_ip.cpp.i
+
+.PHONY : src/moc_ip.i
+
+# target to preprocess a source file
+src/moc_ip.cpp.i:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.i
+.PHONY : src/moc_ip.cpp.i
+
+src/moc_ip.s: src/moc_ip.cpp.s
+
+.PHONY : src/moc_ip.s
+
+# target to generate assembly for a file
+src/moc_ip.cpp.s:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.s
+.PHONY : src/moc_ip.cpp.s
 
 src/moc_vs.o: src/moc_vs.cpp.o
 
@@ -273,9 +327,15 @@ help:
 	@echo "... src/VisualServoing.o"
 	@echo "... src/VisualServoing.i"
 	@echo "... src/VisualServoing.s"
+	@echo "... src/ip.o"
+	@echo "... src/ip.i"
+	@echo "... src/ip.s"
 	@echo "... src/moc_VisualServoing.o"
 	@echo "... src/moc_VisualServoing.i"
 	@echo "... src/moc_VisualServoing.s"
+	@echo "... src/moc_ip.o"
+	@echo "... src/moc_ip.i"
+	@echo "... src/moc_ip.s"
 	@echo "... src/moc_vs.o"
 	@echo "... src/moc_vs.i"
 	@echo "... src/moc_vs.s"
