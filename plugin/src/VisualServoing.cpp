@@ -3,9 +3,14 @@
 #include <boost/filesystem.hpp>
 #include <boost/bind.hpp>
 #include <QtWidgets/QVBoxLayout>
+#include <QDialog>
+#include <QtWidgets/QFileDialog>
 
 #include "vs.h"
 #include "ip.h"
+#include "opencv2/calib3d.hpp"
+#include "opencv2/features2d.hpp"
+#include "opencv2/xfeatures2d.hpp"
 
 #define focal 823.0
 #define z 0.5
@@ -26,10 +31,12 @@ VisualServoing::VisualServoing():
     _camPicture = new QLabel();
     _processedPicture = new QLabel();
     _initButton = new QPushButton("Init");
+    _background = new QPushButton("Select Background");
 	//
 
 	//add them to the layout here
     verticalLayout->addWidget(_initButton);
+    verticalLayout->addWidget(_background);
 	verticalLayout->addWidget(_markerButtons);
     verticalLayout->addWidget(_camPicture);
     verticalLayout->addWidget(_processedPicture);
@@ -46,6 +53,7 @@ VisualServoing::VisualServoing():
 	//_timer = new QTimer(this);
 	//connect(snapShot, SIGNAL(pressed()), this, SLOT(capture()));
     connect(_initButton, SIGNAL(pressed()), this, SLOT(init()));
+    connect(_background,SIGNAL(pressed()),this, SLOT(loadBackground()));
 
     /*
 	rw::sensor::Image textureImage(300,300, rw::sensor::Image::GRAY, rw::sensor::Image::Depth8U);
@@ -215,6 +223,11 @@ void VisualServoing::init() {
 
     _UV = vs::calcUV(focal, _markerFrame, _cameraFrame, _base, _state);
 
+    //load mat for the corner marker
+    _img_object = imread("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm",cv::IMREAD_COLOR);
+    if(_img_object.empty())
+        std::cout << "Failed imread(): image not found" << std::endl;
+
     capture();
 }
 
@@ -248,14 +261,28 @@ void VisualServoing::loadMarker1() {
     rw::sensor::Image::Ptr image = rw::loaders::ImageLoader::Factory::load("/home/student/workspace/RoVi-2017/plugin/markers/Marker1.ppm");
     _textureRender->setImage(*image);
     getRobWorkStudio()->updateAndRepaint();
+    markerMethod = 1;
 }
 
 void VisualServoing::loadMarker2() {
-
+    markerMethod = 2;
 }
 
 void VisualServoing::loadMarker3() {
+    rw::sensor::Image::Ptr image = rw::loaders::ImageLoader::Factory::load("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm");
+    _textureRender->setImage(*image);
+    getRobWorkStudio()->updateAndRepaint();
+    markerMethod = 3;
+}
 
+void VisualServoing::loadBackground() {
+    QString file = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                "/home",
+                                                tr("Images(*.png *.jpg *.ppm)"));
+    rw::sensor::Image::Ptr image;
+    image = rw::loaders::ImageLoader::Factory::load(file.toStdString());
+    _bgRender->setImage(*image);
+    getRobWorkStudio()->updateAndRepaint();
 }
 
 void VisualServoing::detectMarkers() {
@@ -265,44 +292,203 @@ void VisualServoing::detectMarkers() {
         _framegrabber->grab(cameraFrame, _state);
         const rw::sensor::Image& image = _framegrabber->getImage();
 
-        // Convert to OpenCV image
-        cv::Mat im = toOpenCVImage(image);
-        cv::Mat imflip;
-        cv::flip(im, imflip, 0);
-        cv::cvtColor(imflip,imflip,CV_RGB2BGR);
+    switch(markerMethod) {
 
-        // Do Image processing here THIS IS COLOR SEGMENTATION
-        cv::Mat segmented = ip::segmentateHSV(imflip);
-        segmented = ip::opening(segmented, 0 ,3);
-        segmented = ip::closing(segmented, 0 ,3);
+        case 1:
+        {
+            marker1Function(image);
+            break;
+        }
+        case 2:
+        {
 
-        std::vector<std::vector<cv::Point> > contours = ip::findContours(segmented);
+            break;
+        }
+        case 3:
+        {
+            marker3Function(image);
+            break;
+        }
 
-        segmented = ip::drawContours(contours,segmented);
 
-        //Get the moments
-        std::vector<cv::Moments> mu = ip::getMu(contours);
-
-        //get the mass centers
-        std::vector<cv::Point2i> mc = ip::getCenterPoints(mu,contours);
-
-        segmented = ip::drawPoints(mc,segmented);
-
-        cv::cvtColor(segmented, segmented, CV_BGR2RGB);
-
-        mc = ip::toRobotPoints(mc,segmented);
-
-        rw::common::Log::log().info() << "found points: " << mc << std::endl;
-
-        // Show on QLabel
-        QImage img(segmented.data, segmented.cols, segmented.rows, segmented.step, QImage::Format_RGB888);
-        QPixmap p = QPixmap::fromImage(img);
-        unsigned int maxW = 400;
-        unsigned int maxH = 800;
-        _processedPicture->setPixmap(p.scaled(maxW,maxH,Qt::KeepAspectRatio));
-
+        default:
+        {
+            break;
+        }
+        }
     }
 
+}
+
+void VisualServoing::marker1Function(const rw::sensor::Image& image) {
+    // Convert to OpenCV image
+    cv::Mat im = toOpenCVImage(image);
+    cv::Mat imflip;
+    cv::flip(im, imflip, 0);
+    cv::cvtColor(imflip, imflip, CV_RGB2BGR);
+
+    cv::Mat segmentedBlue, segmentedRed;
+
+    //FIND BLUE
+    segmentedBlue = ip::segmentateHSV(imflip, 120, 121, 250, 256, 100, 256); //blue circles
+    segmentedBlue = ip::opening(segmentedBlue, 0, 3);
+    segmentedBlue = ip::closing(segmentedBlue, 0, 6);
+    segmentedBlue = ip::opening(segmentedBlue, 0, 14);
+
+    std::vector<std::vector<cv::Point> > contoursBlue = ip::findContours(segmentedBlue);
+
+    segmentedBlue = ip::drawContours(contoursBlue, segmentedBlue);
+
+    //Get the moments
+    std::vector<cv::Moments> muBlue = ip::getMu(contoursBlue);
+
+    //get the mass centers
+    std::vector<cv::Point2i> mcBlue = ip::getCenterPoints(muBlue, contoursBlue);
+
+    //FIND RED
+    segmentedRed = ip::segmentateHSV(imflip, 0, 1, 250, 256, 100, 256); //blue circles
+    segmentedRed = ip::opening(segmentedRed, 0, 3);
+    segmentedRed = ip::closing(segmentedRed, 0, 6);
+    segmentedRed = ip::opening(segmentedRed, 0, 14);
+
+    std::vector<std::vector<cv::Point> > contoursRed = ip::findContours(segmentedRed);
+
+    segmentedRed = ip::drawContours(contoursRed, segmentedRed);
+
+    //Get the moments
+    std::vector<cv::Moments> muRed = ip::getMu(contoursRed);
+
+    //get the mass centers
+    std::vector<cv::Point2i> mcRed = ip::getCenterPoints(muRed, contoursRed);
+
+    //segmentedRed = ip::drawPoints(mcRed, segmentedRed,cv::Vec3b(0,0,255));
+
+    //DO STUFF WITH RED AND BLUE
+    cv::Mat result = segmentedBlue + segmentedRed;
+
+    std::vector<cv::Point2i> bluePoints = ip::decideOnBlueMarkers(mcBlue, mcRed);
+
+    if (bluePoints.size() < 3 || mcRed.size() < 1) {
+        rw::common::Log::log().info() << "Did not find enough markers" << std::endl;
+        return;
+    }
+
+    std::vector<cv::Point2i> allPoints;
+
+    for (int i = 0; i < mcRed.size(); i++) {
+        cv::circle(result, mcRed[i], 10, cv::Vec3b(255, 0, 0), 4);
+        allPoints.push_back(mcRed[i]);
+    }
+    for (int i = 0; i < bluePoints.size(); i++) {
+        allPoints.push_back(bluePoints[i]);
+        cv::circle(result, bluePoints[i], 10, cv::Vec3b(0, 0, 255), 4);
+    }
+
+    allPoints = ip::toRobotPoints(allPoints, result);
+
+    // Show on QLabel
+    QImage img(result.data, result.cols, result.rows, result.step, QImage::Format_RGB888);
+    QPixmap p = QPixmap::fromImage(img);
+    unsigned int maxW = 400;
+    unsigned int maxH = 800;
+    _processedPicture->setPixmap(p.scaled(maxW, maxH, Qt::KeepAspectRatio));
+}
+
+void VisualServoing::marker3Function(const rw::sensor::Image& image) {
+    cv::Mat im = toOpenCVImage(image);
+    cv::Mat imflip;
+    cv::flip(im, imflip, 0);
+    cv::cvtColor(imflip, imflip, CV_RGB2GRAY);
+
+    cv::Mat img_scene = imflip;
+
+    cv::Mat img_object = _img_object.clone();
+
+    if( !img_object.data || !img_scene.data )
+    { std::cout<< " --(!) Error reading images " << std::endl; return; }
+
+    //-- Step 1: Detect the keypoints using SURF Detector
+    int minHessian = 400;
+
+    cv::Ptr<cv::xfeatures2d::SURF> detector = cv::xfeatures2d::SURF::create( minHessian );
+
+    std::vector<cv::KeyPoint> keypoints_object, keypoints_scene;
+
+
+    //-- Step 2: Calculate descriptors (feature vectors)
+    cv::Mat descriptors_object, descriptors_scene;
+
+    detector->detectAndCompute( img_object, cv::Mat() ,keypoints_object, descriptors_object );
+    detector->detectAndCompute( img_scene, cv::Mat(), keypoints_scene, descriptors_scene );
+
+    //-- Step 3: Matching descriptor vectors using FLANN matcher
+    cv::FlannBasedMatcher matcher;
+    std::vector< cv::DMatch > matches;
+    matcher.match( descriptors_object, descriptors_scene, matches );
+
+    double max_dist = 0; double min_dist = 100;
+
+    //-- Quick calculation of max and min distances between keypoints
+    for( int i = 0; i < descriptors_object.rows; i++ )
+    { double dist = matches[i].distance;
+        if( dist < min_dist ) min_dist = dist;
+        if( dist > max_dist ) max_dist = dist;
+    }
+
+    //-- Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
+    std::vector< cv::DMatch > good_matches;
+
+    for( int i = 0; i < descriptors_object.rows; i++ )
+    {
+        if( matches[i].distance < 3*min_dist)
+            good_matches.push_back( matches[i]);
+    }
+
+    cv::Mat img_matches;
+
+    //-- Localize the object
+    std::vector<cv::Point2f> obj;
+    std::vector<cv::Point2f> scene;
+
+    for( int i = 0; i < good_matches.size(); i++ )
+    {
+        //-- Get the keypoints from the good matches
+        obj.push_back( keypoints_object[ good_matches[i].queryIdx ].pt );
+        scene.push_back( keypoints_scene[ good_matches[i].trainIdx ].pt );
+    }
+
+    cv::Mat H = findHomography( obj, scene, cv::RANSAC );
+
+    //-- Get the corners from the image_1 ( the object to be "detected" )
+    std::vector<cv::Point2f> obj_corners(4);
+    obj_corners[0] = cvPoint(0,0);
+    obj_corners[1] = cvPoint( img_object.cols, 0 );
+    obj_corners[2] = cvPoint( img_object.cols, img_object.rows );
+    obj_corners[3] = cvPoint( 0, img_object.rows );
+    std::vector<cv::Point2f> scene_corners(4);
+
+    perspectiveTransform( obj_corners, scene_corners, H);
+
+    std::vector<cv::Point2i> points;
+    points.push_back(scene_corners[0] );
+    points.push_back(scene_corners[1] );
+    points.push_back(scene_corners[2] );
+    points.push_back(scene_corners[3] );
+
+    /*for(int i = 0; i < points.size(); i++){
+       std::cout << i << " " <<points[i] << std::endl;
+    }*/
+
+    for (int i = 0; i < points.size(); i++) {
+        cv::circle(img_scene,points[i],10,0,4);
+    }
+
+    // Show on QLabel
+    QImage img(img_scene.data, img_scene.cols, img_scene.rows, img_scene.step, QImage::Format_Grayscale8);
+    QPixmap p = QPixmap::fromImage(img);
+    unsigned int maxW = 400;
+    unsigned int maxH = 800;
+    _processedPicture->setPixmap(p.scaled(maxW, maxH, Qt::KeepAspectRatio));
 }
 
 

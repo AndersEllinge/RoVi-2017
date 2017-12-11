@@ -2659,10 +2659,20 @@ boost/bind.hpp
 -
 QtWidgets/QVBoxLayout
 -
+QDialog
+-
+QtWidgets/QFileDialog
+-
 vs.h
 /home/student/workspace/RoVi-2017/plugin/src/vs.h
 ip.h
 /home/student/workspace/RoVi-2017/plugin/src/ip.h
+opencv2/calib3d.hpp
+/home/student/workspace/RoVi-2017/plugin/src/opencv2/calib3d.hpp
+opencv2/features2d.hpp
+/home/student/workspace/RoVi-2017/plugin/src/opencv2/features2d.hpp
+opencv2/xfeatures2d.hpp
+/home/student/workspace/RoVi-2017/plugin/src/opencv2/xfeatures2d.hpp
 
 /home/student/workspace/RoVi-2017/plugin/src/VisualServoing.hpp
 rw/models/WorkCell.hpp
@@ -4182,6 +4192,16 @@ QtCore/qset.h
 QtCore/qcontiguouscache.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h
+QtCore/qstring.h
+-
+QtCore/qfileinfo.h
+-
+QtCore/qstringlist.h
+-
+QtCore/qshareddata.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfeatures.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
@@ -4196,6 +4216,16 @@ stdio.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h
+QtCore/qfile.h
+-
+QtCore/qlist.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qmetatype.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h
@@ -4970,9 +5000,17 @@ QtCore/qglobal.h
 qaction.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDialog
+qdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget
 qdockwidget.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog
+qfiledialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 qlabel.h
@@ -5040,8 +5078,22 @@ QtWidgets/qwidget.h
 limits.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
+QtWidgets/qwidget.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h
 QtWidgets/qwidget.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h
+QtCore/qdir.h
+-
+QtCore/qstring.h
+-
+QtCore/qurl.h
+-
+QtWidgets/qdialog.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h

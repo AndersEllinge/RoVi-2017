@@ -1,10 +1,7 @@
 #include "ip.h"
 
 
-cv::Mat ip::segmentateHSV(cv::Mat image){
-
-    int hueMin = 110, saturationMin = 0, valueMin = 0;
-    int hueMax = 180, saturationMax = 255, valueMax = 255;
+cv::Mat ip::segmentateHSV(cv::Mat image, int hueMin, int hueMax, int saturationMin, int saturationMax, int valueMin, int valueMax){
 
     //convert to HSV
     cv::Mat HSV(image.rows, image.cols, CV_8UC3);
@@ -86,12 +83,12 @@ std::vector<cv::Point2i> ip::getCenterPoints(std::vector<cv::Moments> moments, s
 }
 
 
-cv::Mat ip::drawPoints(std::vector<cv::Point2i> points, cv::Mat image){
+cv::Mat ip::drawPoints(std::vector<cv::Point2i> points, cv::Mat image, cv::Vec3b color){
 
     cv::Mat dst = image.clone();
 
     for (int i = 0; i < points.size(); i++) {
-        dst.at<cv::Vec3b>(points[i]) = cv::Vec3b(0,0,255);
+        dst.at<cv::Vec3b>(points[i]) = color;
     }
 
     return dst;
@@ -107,4 +104,48 @@ std::vector<cv::Point2i> ip::toRobotPoints(std::vector<cv::Point2i> points, cv::
         newPoints[i] = UV-points[i];
     }
     return newPoints;
+}
+
+std::vector<cv::Point2i> ip::decideOnBlueMarkers(std::vector<cv::Point2i> mcBlue, std::vector<cv::Point2i> mcRed) {
+
+    if(mcRed.size() < 1 || mcBlue.size() < 3)
+        return mcRed;
+
+    cv::Vec2i vector1 = {mcBlue[0].x - mcRed[0].x,mcBlue[0].y - mcRed[0].y};
+    cv::Vec2i vector2 = {mcBlue[1].x - mcRed[0].x,mcBlue[1].y - mcRed[0].y};
+    cv::Vec2i vector3 = {mcBlue[2].x - mcRed[0].x,mcBlue[2].y - mcRed[0].y};
+
+    std::vector<cv::Point2i> points;
+
+    std::vector<int> dotProducts = {vector1.dot(vector2), vector1.dot(vector3),vector2.dot(vector3)};
+    int idx = std::min_element(dotProducts.begin(),dotProducts.end())-dotProducts.begin();
+    if(idx == 0){
+
+        int crossProduct = vector1[0]*vector2[1] - vector1[1]*vector2[0];;
+        if(crossProduct < 0){
+            points = {mcBlue[0],mcBlue[1],mcBlue[2]};
+        }
+        else{
+            points = {mcBlue[1],mcBlue[0],mcBlue[2]};
+        }
+    }
+    else if(idx == 1){
+        int crossProduct = vector1[0]*vector3[1] - vector1[1]*vector3[0];
+        if(crossProduct < 0){
+            points = {mcBlue[0],mcBlue[2],mcBlue[1]};
+        }
+        else{
+            points = {mcBlue[2],mcBlue[0],mcBlue[1]};
+        }
+    }
+    else if(idx == 2){
+        int crossProduct = vector2[0]*vector3[1] - vector2[1]*vector3[0];
+        if(crossProduct < 0){
+            points = {mcBlue[1],mcBlue[2],mcBlue[0]};
+        }
+        else{
+            points = {mcBlue[2],mcBlue[1],mcBlue[0]};
+        }
+    }
+    return points;
 }

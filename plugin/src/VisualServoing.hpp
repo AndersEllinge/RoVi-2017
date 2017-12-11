@@ -49,6 +49,9 @@ public:
 private:
     static cv::Mat toOpenCVImage(const rw::sensor::Image& img);
     QWidget* createMarkerButtons();
+	void marker1Function(const rw::sensor::Image& image);
+	void marker3Function(const rw::sensor::Image& image);
+    int markerMethod;
 
 
     rw::kinematics::State _state;
@@ -59,6 +62,8 @@ private:
     QLabel* _camPicture;
     QLabel* _processedPicture;
     QPushButton* _initButton;
+    QPushButton* _background;
+	cv::Mat _img_object;
     rwlibs::opengl::RenderImage *_textureRender, *_bgRender;
     rwlibs::simulation::GLFrameGrabber* _framegrabber;
 
@@ -77,6 +82,7 @@ private slots:
     void loadMarker1();
     void loadMarker2();
     void loadMarker3();
+    void loadBackground();
 };
 
 #endif

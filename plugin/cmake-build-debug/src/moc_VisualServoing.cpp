@@ -20,8 +20,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_VisualServoing_t {
-    QByteArrayData data[6];
-    char stringdata0[73];
+    QByteArrayData data[13];
+    char stringdata0[162];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,11 +35,21 @@ QT_MOC_LITERAL(1, 15, 20), // "stateChangedListener"
 QT_MOC_LITERAL(2, 36, 0), // ""
 QT_MOC_LITERAL(3, 37, 21), // "rw::kinematics::State"
 QT_MOC_LITERAL(4, 59, 5), // "state"
-QT_MOC_LITERAL(5, 65, 7) // "capture"
+QT_MOC_LITERAL(5, 65, 7), // "capture"
+QT_MOC_LITERAL(6, 73, 13), // "detectMarkers"
+QT_MOC_LITERAL(7, 87, 4), // "init"
+QT_MOC_LITERAL(8, 92, 18), // "testVisualServoing"
+QT_MOC_LITERAL(9, 111, 11), // "loadMarker1"
+QT_MOC_LITERAL(10, 123, 11), // "loadMarker2"
+QT_MOC_LITERAL(11, 135, 11), // "loadMarker3"
+QT_MOC_LITERAL(12, 147, 14) // "loadBackground"
 
     },
     "VisualServoing\0stateChangedListener\0"
-    "\0rw::kinematics::State\0state\0capture"
+    "\0rw::kinematics::State\0state\0capture\0"
+    "detectMarkers\0init\0testVisualServoing\0"
+    "loadMarker1\0loadMarker2\0loadMarker3\0"
+    "loadBackground"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +59,7 @@ static const uint qt_meta_data_VisualServoing[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,11 +67,25 @@ static const uint qt_meta_data_VisualServoing[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x08 /* Private */,
-       5,    0,   27,    2, 0x08 /* Private */,
+       1,    1,   59,    2, 0x08 /* Private */,
+       5,    0,   62,    2, 0x08 /* Private */,
+       6,    0,   63,    2, 0x08 /* Private */,
+       7,    0,   64,    2, 0x08 /* Private */,
+       8,    0,   65,    2, 0x08 /* Private */,
+       9,    0,   66,    2, 0x08 /* Private */,
+      10,    0,   67,    2, 0x08 /* Private */,
+      11,    0,   68,    2, 0x08 /* Private */,
+      12,    0,   69,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -75,6 +99,13 @@ void VisualServoing::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->stateChangedListener((*reinterpret_cast< const rw::kinematics::State(*)>(_a[1]))); break;
         case 1: _t->capture(); break;
+        case 2: _t->detectMarkers(); break;
+        case 3: _t->init(); break;
+        case 4: _t->testVisualServoing(); break;
+        case 5: _t->loadMarker1(); break;
+        case 6: _t->loadMarker2(); break;
+        case 7: _t->loadMarker3(); break;
+        case 8: _t->loadBackground(); break;
         default: ;
         }
     }
@@ -107,13 +138,13 @@ int VisualServoing::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 9)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 9;
     }
     return _id;
 }
