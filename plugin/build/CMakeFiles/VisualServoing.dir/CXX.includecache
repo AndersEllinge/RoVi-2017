@@ -2671,8 +2671,6 @@ opencv2/calib3d.hpp
 /home/student/workspace/RoVi-2017/plugin/src/opencv2/calib3d.hpp
 opencv2/features2d.hpp
 /home/student/workspace/RoVi-2017/plugin/src/opencv2/features2d.hpp
-opencv2/xfeatures2d.hpp
-/home/student/workspace/RoVi-2017/plugin/src/opencv2/xfeatures2d.hpp
 
 /home/student/workspace/RoVi-2017/plugin/src/VisualServoing.hpp
 rw/models/WorkCell.hpp
@@ -2695,6 +2693,8 @@ rws/RobWorkStudio.hpp
 -
 opencv2/opencv.hpp
 -
+opencv2/xfeatures2d.hpp
+/home/student/workspace/RoVi-2017/plugin/src/opencv2/xfeatures2d.hpp
 QTimer
 -
 QLabel

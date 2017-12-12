@@ -16,6 +16,7 @@
 
 //OpenCV
 #include <opencv2/opencv.hpp>
+#include "opencv2/xfeatures2d.hpp"
 
 //QT
 #include <QTimer>
@@ -64,6 +65,9 @@ private:
     QPushButton* _initButton;
     QPushButton* _background;
 	cv::Mat _img_object;
+    std::vector<cv::KeyPoint> _keypoints_object;
+    cv::Mat _descriptors_object;
+    cv::Ptr<cv::xfeatures2d::SURF> _detector;
     rwlibs::opengl::RenderImage *_textureRender, *_bgRender;
     rwlibs::simulation::GLFrameGrabber* _framegrabber;
 

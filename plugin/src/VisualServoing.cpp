@@ -10,7 +10,7 @@
 #include "ip.h"
 #include "opencv2/calib3d.hpp"
 #include "opencv2/features2d.hpp"
-#include "opencv2/xfeatures2d.hpp"
+
 
 #define focal 823.0
 #define z 0.5
@@ -223,10 +223,7 @@ void VisualServoing::init() {
 
     _UV = vs::calcUV(focal, _markerFrame, _cameraFrame, _base, _state);
 
-    //load mat for the corner marker
-    _img_object = imread("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm",cv::IMREAD_COLOR);
-    if(_img_object.empty())
-        std::cout << "Failed imread(): image not found" << std::endl;
+
 
     capture();
 }
@@ -273,6 +270,18 @@ void VisualServoing::loadMarker3() {
     _textureRender->setImage(*image);
     getRobWorkStudio()->updateAndRepaint();
     markerMethod = 3;
+
+    //load mat for the corner marker
+    _img_object = imread("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm",cv::IMREAD_COLOR);
+    if(_img_object.empty())
+        std::cout << "Failed imread(): image not found" << std::endl;
+
+
+    //Detect keypoints with surf on the marker. No reason to do this more than once.
+    int minHessian = 400;
+    _detector = cv::xfeatures2d::SURF::create( minHessian );
+    _detector->detectAndCompute( _img_object, cv::Mat() ,_keypoints_object, _descriptors_object );
+
 }
 
 void VisualServoing::loadBackground() {
@@ -402,69 +411,66 @@ void VisualServoing::marker3Function(const rw::sensor::Image& image) {
 
     cv::Mat img_scene = imflip;
 
-    cv::Mat img_object = _img_object.clone();
+    //cv::Mat img_object = _img_object.clone();
 
-    if( !img_object.data || !img_scene.data )
+    if( !_img_object.data || !img_scene.data )
     { std::cout<< " --(!) Error reading images " << std::endl; return; }
 
     //-- Step 1: Detect the keypoints using SURF Detector
-    int minHessian = 400;
 
-    cv::Ptr<cv::xfeatures2d::SURF> detector = cv::xfeatures2d::SURF::create( minHessian );
-
-    std::vector<cv::KeyPoint> keypoints_object, keypoints_scene;
-
+    std::vector<cv::KeyPoint> keypoints_scene;
 
     //-- Step 2: Calculate descriptors (feature vectors)
-    cv::Mat descriptors_object, descriptors_scene;
+    cv::Mat descriptors_scene;
 
-    detector->detectAndCompute( img_object, cv::Mat() ,keypoints_object, descriptors_object );
-    detector->detectAndCompute( img_scene, cv::Mat(), keypoints_scene, descriptors_scene );
+    _detector->detectAndCompute( img_scene, cv::Mat(), keypoints_scene, descriptors_scene );
 
     //-- Step 3: Matching descriptor vectors using FLANN matcher
     cv::FlannBasedMatcher matcher;
     std::vector< cv::DMatch > matches;
-    matcher.match( descriptors_object, descriptors_scene, matches );
+    matcher.match( _descriptors_object, descriptors_scene, matches);
 
     double max_dist = 0; double min_dist = 100;
 
     //-- Quick calculation of max and min distances between keypoints
-    for( int i = 0; i < descriptors_object.rows; i++ )
-    { double dist = matches[i].distance;
-        if( dist < min_dist ) min_dist = dist;
-        if( dist > max_dist ) max_dist = dist;
+    for( int i = 0; i < _descriptors_object.rows; i++ )
+    {
+        double dist = matches[i].distance;
+        if( dist < min_dist )
+            min_dist = dist;
+        if( dist > max_dist )
+            max_dist = dist;
     }
-
     //-- Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
     std::vector< cv::DMatch > good_matches;
 
-    for( int i = 0; i < descriptors_object.rows; i++ )
+    for( int i = 0; i < _descriptors_object.rows; i++ )
     {
         if( matches[i].distance < 3*min_dist)
             good_matches.push_back( matches[i]);
     }
 
-    cv::Mat img_matches;
-
     //-- Localize the object
     std::vector<cv::Point2f> obj;
     std::vector<cv::Point2f> scene;
-
     for( int i = 0; i < good_matches.size(); i++ )
     {
         //-- Get the keypoints from the good matches
-        obj.push_back( keypoints_object[ good_matches[i].queryIdx ].pt );
+        obj.push_back( _keypoints_object[ good_matches[i].queryIdx ].pt );
         scene.push_back( keypoints_scene[ good_matches[i].trainIdx ].pt );
     }
-
     cv::Mat H = findHomography( obj, scene, cv::RANSAC );
-
+    if(H.empty())
+    {
+        rw::common::Log::log().info() << "No good matches, no new points calculated" << std::endl;
+        return;
+    }
     //-- Get the corners from the image_1 ( the object to be "detected" )
     std::vector<cv::Point2f> obj_corners(4);
     obj_corners[0] = cvPoint(0,0);
-    obj_corners[1] = cvPoint( img_object.cols, 0 );
-    obj_corners[2] = cvPoint( img_object.cols, img_object.rows );
-    obj_corners[3] = cvPoint( 0, img_object.rows );
+    obj_corners[1] = cvPoint( _img_object.cols, 0 );
+    obj_corners[2] = cvPoint( _img_object.cols, _img_object.rows );
+    obj_corners[3] = cvPoint( 0, _img_object.rows );
     std::vector<cv::Point2f> scene_corners(4);
 
     perspectiveTransform( obj_corners, scene_corners, H);
@@ -475,9 +481,10 @@ void VisualServoing::marker3Function(const rw::sensor::Image& image) {
     points.push_back(scene_corners[2] );
     points.push_back(scene_corners[3] );
 
-    /*for(int i = 0; i < points.size(); i++){
-       std::cout << i << " " <<points[i] << std::endl;
-    }*/
+    for(int i = 0; i < points.size(); i++){
+       rw::common::Log::log().info() << "Point: " << i << " " << points[i];
+    }
+    rw::common::Log::log().info() << std::endl;
 
     for (int i = 0; i < points.size(); i++) {
         cv::circle(img_scene,points[i],10,0,4);
