@@ -498,4 +498,3 @@ void VisualServoing::marker3Function(const rw::sensor::Image& image) {
     _processedPicture->setPixmap(p.scaled(maxW, maxH, Qt::KeepAspectRatio));
 }
 
-
