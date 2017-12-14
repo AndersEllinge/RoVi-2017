@@ -119,6 +119,11 @@ vsMult::calcDqFromUV(std::vector<double> u, std::vector<double> v, std::vector<d
     //rw::common::Log::log().info() << "ZImageWeird: " << rw::math::LinearAlgebra::pseudoInverse(ZImage*ZImage.transpose()) << std::endl;
     //rw::common::Log::log().info() << "y: " << y << std::endl;
 
+    //SVD METHODS, SEEMS NOT WORK WITH CURRENT CODE
+    //Eigen::JacobiSVD<Eigen::MatrixXd> svd1(ZImage, Eigen::ComputeThinU | Eigen::ComputeThinV);
+    //Eigen::MatrixXd dq1_e = svd1.solve(dUdV);
+    //rw::common::Log::log().info() << "SVD dQ: " << std::endl << dq1_e << std::endl;
+
     // Choose dq
     //rw::common::Log::log().info() << "ZImage: " << std::endl << ZImage << std::endl;
     Eigen::Matrix<double, 7, 1> eQ = ZImage.transpose() * y;

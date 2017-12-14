@@ -24,6 +24,7 @@
 #include <QPushButton>
 #include <QToolButton>
 #include <QScrollArea>
+#include <QDoubleSpinBox>
 
 
 class VisualServoing: public rws::RobWorkStudioPlugin
@@ -60,6 +61,8 @@ private:
     QLabel* _processedPicture;
     QPushButton* _initButton;
     QPushButton* _background;
+    QPushButton* _motionBtn;
+    QDoubleSpinBox* _deltaTSpinBox;
 	cv::Mat _img_object;
     std::vector<cv::KeyPoint> _keypoints_object;
     cv::Mat _descriptors_object;
@@ -77,6 +80,7 @@ private:
     std::vector<rw::math::Transform3D<>> transformsForMarker;
     std::string motionFile = "/home/student/workspace/RoVi-2017/pluginV1/motions/MarkerMotionFast.txt";
     int transIterator;
+	int markerInUse;
     double deltaT = 1;
 
 private slots:
@@ -87,8 +91,10 @@ private slots:
     void loadMarker2();
     void loadMarker3();
     void loadBackground();
+    void loadMotion();
 	void nextMarkerPos();
     void nextMarkerPosMult();
+	void deltaTChanged();
 };
 
 #endif

@@ -37,11 +37,14 @@ VisualServoing::VisualServoing():
     _processedPicture = new QLabel();
     _initButton = new QPushButton("Init");
     _background = new QPushButton("Select Background");
+    _motionBtn = new QPushButton("Select Motion");
+
 	//
 
 	//add them to the layout here
     verticalLayout->addWidget(_initButton);
     verticalLayout->addWidget(_background);
+    verticalLayout->addWidget(_motionBtn);
 	verticalLayout->addWidget(_markerButtons);
     verticalLayout->addWidget(_camPicture);
     verticalLayout->addWidget(_processedPicture);
@@ -59,7 +62,7 @@ VisualServoing::VisualServoing():
 	//connect(snapShot, SIGNAL(pressed()), this, SLOT(capture()));
     connect(_initButton, SIGNAL(pressed()), this, SLOT(init()));
     connect(_background,SIGNAL(pressed()),this, SLOT(loadBackground()));
-
+    connect(_motionBtn, SIGNAL(pressed()),this, SLOT(loadMotion()));
     /*
 	rw::sensor::Image textureImage(300,300, rw::sensor::Image::GRAY, rw::sensor::Image::Depth8U);
 	_textureRender = new rwlibs::opengl::RenderImage(textureImage);
@@ -140,6 +143,19 @@ QWidget* VisualServoing::createMarkerButtons(){
     QWidget* markerButtons = new QWidget();
     QGridLayout *layout = new QGridLayout(markerButtons);
 
+
+    //Creating container widget for deltaT variable.
+    QWidget* containerDeltaT = new QWidget();
+    QVBoxLayout* containerLayout = new QVBoxLayout();
+    QLabel* dT = new QLabel("Delta T");
+    _deltaTSpinBox = new QDoubleSpinBox();
+
+    containerLayout->addWidget(dT);
+    containerLayout->addWidget(_deltaTSpinBox);
+    containerDeltaT->setLayout(containerLayout);
+    connect(_deltaTSpinBox, SIGNAL(valueChanged()), this, SLOT(deltaTChanged()));
+    //
+
     QToolButton *btns[3];
 
     btns[0] = new QToolButton();
@@ -161,6 +177,7 @@ QWidget* VisualServoing::createMarkerButtons(){
     layout->addWidget(btns[1],0,1);
     layout->addWidget(btns[2],0,2);
     layout->addWidget(btns[3],0,3);
+    layout->addWidget(containerDeltaT,0,4);
 
     connect(btns[0], SIGNAL(pressed()), this, SLOT(loadMarker1()));
     connect(btns[1], SIGNAL(pressed()), this, SLOT(loadMarker2()));
@@ -174,6 +191,7 @@ QWidget* VisualServoing::createMarkerButtons(){
 }
 
 void VisualServoing::init() {
+
     // Auto load workcell
     rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/student/Desktop/workspace/PA10WorkCell/ScenePA10RoVi1.wc.xml");
     getRobWorkStudio()->setWorkCell(wc);
@@ -250,7 +268,7 @@ void VisualServoing::loadMarker1() {
     for (int j = 0; j < _UV[0].size(); j++) {
         rw::common::Log::log().info() << "uvt: " << _UV[0][j] << ", " << _UV[1][j] << std::endl;
     }
-
+    markerInUse = 1;
 }
 
 void VisualServoing::loadMarker2() {
@@ -274,6 +292,7 @@ void VisualServoing::loadMarker3() {
     rw::sensor::Image::Ptr image = rw::loaders::ImageLoader::Factory::load("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm");
     _textureRender->setImage(*image);
     getRobWorkStudio()->updateAndRepaint();
+    capture();
 
     //load mat for the corner marker
     _img_object = imread("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm",cv::IMREAD_COLOR);
@@ -285,6 +304,31 @@ void VisualServoing::loadMarker3() {
     int minHessian = 400;
     _detector = cv::xfeatures2d::SURF::create( minHessian );
     _detector->detectAndCompute( _img_object, cv::Mat() ,_keypoints_object, _descriptors_object );
+
+
+    //Setup UV desired
+    std::vector<cv::Point2i> points = ip::marker3Function(_framegrabber->getImage(),_detector,_descriptors_object,_keypoints_object,_img_object);
+    _UVs = {points[0].x, points[0].y};
+
+    std::vector<double> U;
+    std::vector<double> V;
+
+    for (int i = 0; i < 3; i++) {
+        double u = points[i].x;
+        double v = points[i].y;
+        U.push_back(u);
+        V.push_back(v);
+    }
+
+    _UV.push_back(U);
+    _UV.push_back(V);
+
+    for (int j = 0; j < _UV[0].size(); j++) {
+        rw::common::Log::log().info() << "uvt: " << _UV[0][j] << ", " << _UV[1][j] << std::endl;
+    }
+
+    markerInUse = 3;
+
 }
 
 void VisualServoing::loadBackground() {
@@ -295,6 +339,17 @@ void VisualServoing::loadBackground() {
     image = rw::loaders::ImageLoader::Factory::load(file.toStdString());
     _bgRender->setImage(*image);
     getRobWorkStudio()->updateAndRepaint();
+}
+void VisualServoing::loadMotion() {
+    QString file = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                "/home",
+                                                tr("*.txt"));
+    motionFile = file.toStdString();
+}
+
+void VisualServoing::deltaTChanged() {
+    deltaT = _deltaTSpinBox->value();
+    std::cout << deltaT << std::endl;
 }
 
 void VisualServoing::nextMarkerPos() {
@@ -342,7 +397,17 @@ void VisualServoing::nextMarkerPosMult() {
     getRobWorkStudio()->setState(_state);
 
     // Get new points from marker
-    std::vector<cv::Point2i> points = ip::marker1Function(_framegrabber->getImage());
+    std::vector<cv::Point2i> points;
+    if(markerInUse == 1)
+        points = ip::marker1Function(_framegrabber->getImage());
+
+    if(markerInUse == 3)
+        points = ip::marker3Function(_framegrabber->getImage(),_detector,_descriptors_object,_keypoints_object,_img_object);
+
+    std::cout << "returned" << std::endl;
+    if(points.size() < 3)
+        return;
+
     std::vector<std::vector<double>> newUV;
     std::vector<double> U;
     std::vector<double> V;
@@ -362,7 +427,7 @@ void VisualServoing::nextMarkerPosMult() {
     }
 
     // Calc du dv from new points
-    std::vector<std::vector<double>> dUV = vsMult::calcDuDv(newUV, _UV);
+    std::vector<std::vector<double>> dUV = vsMult::calcDuDv( newUV,_UV);
 
     rw::common::Log::log().info() << std::endl;
     for (int j = 0; j < dUV[0].size(); j++) {
@@ -379,9 +444,13 @@ void VisualServoing::nextMarkerPosMult() {
     getRobWorkStudio()->setState(_state);
     //rw::common::Log::log().info() << std::endl << "dq: " << dq << std::endl;
 
-
     // Calc precision
-    std::vector<cv::Point2i> pointsp = ip::marker1Function(_framegrabber->getImage());
+    std::vector<cv::Point2i> pointsp;
+    if(markerInUse == 1)
+        pointsp = ip::marker1Function(_framegrabber->getImage());
+
+    if(markerInUse == 3)
+        pointsp = ip::marker3Function(_framegrabber->getImage(),_detector,_descriptors_object,_keypoints_object,_img_object);
 
     for (int k = 0; k < pointsp.size(); k++) {
         //rw::common::Log::log().info() << "x: " << pointsp[k].x << " y: " << pointsp[k].y << std::endl;
@@ -400,14 +469,13 @@ void VisualServoing::nextMarkerPosMult() {
     pres.push_back(Up);
     pres.push_back(Vp);
 
-    pres = vsMult::calcDuDv(pres, _UV);
+    pres = vsMult::calcDuDv( pres,_UV);
 
     rw::common::Log::log().info() << std::endl;
     for (int j = 0; j < pres[0].size(); j++) {
         rw::common::Log::log().info() << "duvp: " << pres[0][j] << ", " << pres[1][j] << std::endl;
     }
     rw::common::Log::log().info() << std::endl << "----------------------" << std::endl;
-
 }
 
 std::vector<rw::math::Transform3D<>> loadTransforms(std::string file) {

@@ -344,6 +344,7 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linu
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
@@ -386,12 +387,14 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linu
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDialog
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDoubleSpinBox
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
@@ -402,6 +405,7 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linu
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
@@ -417,6 +421,7 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linu
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollarea.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qspinbox.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbutton.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
@@ -1143,6 +1148,7 @@ CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h
+CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
@@ -1185,11 +1191,13 @@ CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h
+CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget
+CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDoubleSpinBox
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
@@ -1198,6 +1206,7 @@ CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h
+CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h
@@ -1207,6 +1216,7 @@ CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollarea.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
+CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qspinbox.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbutton.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h

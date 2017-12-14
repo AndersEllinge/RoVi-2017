@@ -209,7 +209,10 @@ std::vector<cv::Point2i> ip::marker1Function(const rw::sensor::Image& image) {
 
     if (bluePoints.size() < 3 || mcRed.size() < 1) {
         std::cout << "Did not find enough markers" << std::endl;
-        return std::vector<cv::Point2i>();
+        std::vector<cv::Point> null;
+        cv::Point2i p = {0,0};
+        null.push_back(p);
+        return null;
     }
 
     std::vector<cv::Point2i> allPoints;
@@ -295,7 +298,10 @@ std::vector<cv::Point2i> ip::marker3Function(const rw::sensor::Image& image, cv:
     if(H.empty())
     {
         rw::common::Log::log().info() << "No good matches, no new points calculated" << std::endl;
-        return std::vector<cv::Point2i>();
+        std::vector<cv::Point> null;
+        cv::Point2i p = {0,0};
+        null.push_back(p);
+        return null;
     }
     //-- Get the corners from the image_1 ( the object to be "detected" )
     std::vector<cv::Point2f> obj_corners(4);
