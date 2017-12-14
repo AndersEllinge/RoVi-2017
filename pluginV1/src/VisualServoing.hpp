@@ -72,6 +72,13 @@ private:
 	rw::kinematics::Frame* _base;
 	rw::models::Device::Ptr _device;
 
+    std::vector<std::vector<double>> _UV;
+	std::vector<double> _UVs;
+    std::vector<rw::math::Transform3D<>> transformsForMarker;
+    std::string motionFile = "/home/student/workspace/RoVi-2017/pluginV1/motions/MarkerMotionFast.txt";
+    int transIterator;
+    double deltaT = 1;
+
 private slots:
     void stateChangedListener(const rw::kinematics::State& state);
     void capture();
@@ -80,6 +87,8 @@ private slots:
     void loadMarker2();
     void loadMarker3();
     void loadBackground();
+	void nextMarkerPos();
+    void nextMarkerPosMult();
 };
 
 #endif

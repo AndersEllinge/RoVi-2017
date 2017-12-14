@@ -1,9 +1,27 @@
-/home/student/workspace/clion-2017.2.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/student/workspace/RoVi-2017/pluginV1
+/home/student/clion-2017.2.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/student/workspace/RoVi-2017/pluginV1
+-- The C compiler identification is GNU 5.4.0
+-- The CXX compiler identification is GNU 5.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- Build type: Debug
 -- RobWork root: /home/student/RobWork/RobWork/
 -- warning: RobWork was not compiled with type:debug using type:relwithdebinfo instead!
+-- Found RobWork: /home/student/RobWork/RobWork/cmake/..  
 -- RobWorkStudio root: /home/student/RobWork/RobWorkStudio/
 -- warning: RobWorkStudio was not compiled with type:debug using type:relwithdebinfo instead!
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libGL.so  
+-- Found RobWorkStudio: /home/student/RobWork/RobWorkStudio//cmake/..  
+-- Found OpenCV: /opt/ros/kinetic (found suitable version "3.2.0", minimum required is "3") 
 -- VisualServoing done!
 -- Configuring done
 -- Generating done

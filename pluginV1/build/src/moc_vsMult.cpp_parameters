@@ -48,5 +48,5 @@
 -DBOOST_DISABLE_ASSERTS
 -DQT_NO_DEBUG
 -o
-/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_VisualServoing.cpp
-/home/student/Desktop/workspace/RoVi-2017/pluginV1/src/VisualServoing.hpp
+/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vsMult.cpp
+/home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vsMult.h

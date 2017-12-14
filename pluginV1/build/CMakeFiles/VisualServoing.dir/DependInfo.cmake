@@ -4,13 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/student/workspace/RoVi-2017/plugin/build/qrc_resources.cpp" "/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
-  "/home/student/workspace/RoVi-2017/plugin/src/VisualServoing.cpp" "/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o"
-  "/home/student/workspace/RoVi-2017/plugin/src/ip.cpp" "/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/VisualServoing.dir/src/ip.cpp.o"
-  "/home/student/workspace/RoVi-2017/plugin/build/src/moc_VisualServoing.cpp" "/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
-  "/home/student/workspace/RoVi-2017/plugin/build/src/moc_ip.cpp" "/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o"
-  "/home/student/workspace/RoVi-2017/plugin/build/src/moc_vs.cpp" "/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o"
-  "/home/student/workspace/RoVi-2017/plugin/src/vs.cpp" "/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/VisualServoing.dir/src/vs.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/qrc_resources.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/src/VisualServoing.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/src/ip.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/src/ip.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_VisualServoing.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_ip.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vs.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vsMult.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vs.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/src/vs.cpp.o"
+  "/home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vsMult.cpp" "/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

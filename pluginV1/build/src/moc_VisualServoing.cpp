@@ -21,7 +21,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_VisualServoing_t {
     QByteArrayData data[13];
-    char stringdata0[162];
+    char stringdata0[161];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,20 +36,20 @@ QT_MOC_LITERAL(2, 36, 0), // ""
 QT_MOC_LITERAL(3, 37, 21), // "rw::kinematics::State"
 QT_MOC_LITERAL(4, 59, 5), // "state"
 QT_MOC_LITERAL(5, 65, 7), // "capture"
-QT_MOC_LITERAL(6, 73, 13), // "detectMarkers"
-QT_MOC_LITERAL(7, 87, 4), // "init"
-QT_MOC_LITERAL(8, 92, 18), // "testVisualServoing"
-QT_MOC_LITERAL(9, 111, 11), // "loadMarker1"
-QT_MOC_LITERAL(10, 123, 11), // "loadMarker2"
-QT_MOC_LITERAL(11, 135, 11), // "loadMarker3"
-QT_MOC_LITERAL(12, 147, 14) // "loadBackground"
+QT_MOC_LITERAL(6, 73, 4), // "init"
+QT_MOC_LITERAL(7, 78, 11), // "loadMarker1"
+QT_MOC_LITERAL(8, 90, 11), // "loadMarker2"
+QT_MOC_LITERAL(9, 102, 11), // "loadMarker3"
+QT_MOC_LITERAL(10, 114, 14), // "loadBackground"
+QT_MOC_LITERAL(11, 129, 13), // "nextMarkerPos"
+QT_MOC_LITERAL(12, 143, 17) // "nextMarkerPosMult"
 
     },
     "VisualServoing\0stateChangedListener\0"
     "\0rw::kinematics::State\0state\0capture\0"
-    "detectMarkers\0init\0testVisualServoing\0"
-    "loadMarker1\0loadMarker2\0loadMarker3\0"
-    "loadBackground"
+    "init\0loadMarker1\0loadMarker2\0loadMarker3\0"
+    "loadBackground\0nextMarkerPos\0"
+    "nextMarkerPosMult"
 };
 #undef QT_MOC_LITERAL
 
@@ -99,13 +99,13 @@ void VisualServoing::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->stateChangedListener((*reinterpret_cast< const rw::kinematics::State(*)>(_a[1]))); break;
         case 1: _t->capture(); break;
-        case 2: _t->detectMarkers(); break;
-        case 3: _t->init(); break;
-        case 4: _t->testVisualServoing(); break;
-        case 5: _t->loadMarker1(); break;
-        case 6: _t->loadMarker2(); break;
-        case 7: _t->loadMarker3(); break;
-        case 8: _t->loadBackground(); break;
+        case 2: _t->init(); break;
+        case 3: _t->loadMarker1(); break;
+        case 4: _t->loadMarker2(); break;
+        case 5: _t->loadMarker3(); break;
+        case 6: _t->loadBackground(); break;
+        case 7: _t->nextMarkerPos(); break;
+        case 8: _t->nextMarkerPosMult(); break;
         default: ;
         }
     }

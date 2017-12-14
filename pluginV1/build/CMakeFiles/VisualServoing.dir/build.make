@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/workspace/RoVi-2017/plugin
+CMAKE_SOURCE_DIR = /home/student/Desktop/workspace/RoVi-2017/pluginV1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/workspace/RoVi-2017/plugin/build
+CMAKE_BINARY_DIR = /home/student/Desktop/workspace/RoVi-2017/pluginV1/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/VisualServoing.dir/depend.make
@@ -58,37 +58,41 @@ include CMakeFiles/VisualServoing.dir/progress.make
 include CMakeFiles/VisualServoing.dir/flags.make
 
 src/moc_VisualServoing.cpp: ../src/VisualServoing.hpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating src/moc_VisualServoing.cpp"
-	cd /home/student/workspace/RoVi-2017/plugin/build/src && /usr/lib/x86_64-linux-gnu/qt5/bin/moc @/home/student/workspace/RoVi-2017/plugin/build/src/moc_VisualServoing.cpp_parameters
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating src/moc_VisualServoing.cpp"
+	cd /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src && /usr/lib/x86_64-linux-gnu/qt5/bin/moc @/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_VisualServoing.cpp_parameters
 
 src/moc_vs.cpp: ../src/vs.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating src/moc_vs.cpp"
-	cd /home/student/workspace/RoVi-2017/plugin/build/src && /usr/lib/x86_64-linux-gnu/qt5/bin/moc @/home/student/workspace/RoVi-2017/plugin/build/src/moc_vs.cpp_parameters
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating src/moc_vs.cpp"
+	cd /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src && /usr/lib/x86_64-linux-gnu/qt5/bin/moc @/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vs.cpp_parameters
+
+src/moc_vsMult.cpp: ../src/vsMult.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating src/moc_vsMult.cpp"
+	cd /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src && /usr/lib/x86_64-linux-gnu/qt5/bin/moc @/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vsMult.cpp_parameters
 
 src/moc_ip.cpp: ../src/ip.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating src/moc_ip.cpp"
-	cd /home/student/workspace/RoVi-2017/plugin/build/src && /usr/lib/x86_64-linux-gnu/qt5/bin/moc @/home/student/workspace/RoVi-2017/plugin/build/src/moc_ip.cpp_parameters
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating src/moc_ip.cpp"
+	cd /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src && /usr/lib/x86_64-linux-gnu/qt5/bin/moc @/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_ip.cpp_parameters
 
 qrc_resources.cpp: ../src/pa_icon.png
 qrc_resources.cpp: ../markers/Marker1.ppm
 qrc_resources.cpp: ../markers/Marker2a.ppm
 qrc_resources.cpp: ../markers/Marker3.ppm
 qrc_resources.cpp: ../src/resources.qrc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating qrc_resources.cpp"
-	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc --name resources --output /home/student/workspace/RoVi-2017/plugin/build/qrc_resources.cpp /home/student/workspace/RoVi-2017/plugin/src/resources.qrc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating qrc_resources.cpp"
+	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc --name resources --output /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/qrc_resources.cpp /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/resources.qrc
 
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/VisualServoing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o -c /home/student/workspace/RoVi-2017/plugin/src/VisualServoing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/VisualServoing.cpp
 
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/workspace/RoVi-2017/plugin/src/VisualServoing.cpp > CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/VisualServoing.cpp > CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.i
 
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/workspace/RoVi-2017/plugin/src/VisualServoing.cpp -o CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/VisualServoing.cpp -o CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.s
 
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o.requires:
 
@@ -103,16 +107,16 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: ../src/vs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VisualServoing.dir/src/vs.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/vs.cpp.o -c /home/student/workspace/RoVi-2017/plugin/src/vs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VisualServoing.dir/src/vs.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/vs.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vs.cpp
 
 CMakeFiles/VisualServoing.dir/src/vs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/src/vs.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/workspace/RoVi-2017/plugin/src/vs.cpp > CMakeFiles/VisualServoing.dir/src/vs.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vs.cpp > CMakeFiles/VisualServoing.dir/src/vs.cpp.i
 
 CMakeFiles/VisualServoing.dir/src/vs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/src/vs.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/workspace/RoVi-2017/plugin/src/vs.cpp -o CMakeFiles/VisualServoing.dir/src/vs.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vs.cpp -o CMakeFiles/VisualServoing.dir/src/vs.cpp.s
 
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o.requires:
 
@@ -125,18 +129,42 @@ CMakeFiles/VisualServoing.dir/src/vs.cpp.o.provides: CMakeFiles/VisualServoing.d
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o.provides.build: CMakeFiles/VisualServoing.dir/src/vs.cpp.o
 
 
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: ../src/vsMult.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vsMult.cpp
+
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/src/vsMult.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vsMult.cpp > CMakeFiles/VisualServoing.dir/src/vsMult.cpp.i
+
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/src/vsMult.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/vsMult.cpp -o CMakeFiles/VisualServoing.dir/src/vsMult.cpp.s
+
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o.requires:
+
+.PHONY : CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o.requires
+
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o.provides: CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o.requires
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o.provides.build
+.PHONY : CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o.provides
+
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o.provides.build: CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o
+
+
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: ../src/ip.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VisualServoing.dir/src/ip.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/ip.cpp.o -c /home/student/workspace/RoVi-2017/plugin/src/ip.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VisualServoing.dir/src/ip.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/ip.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/ip.cpp
 
 CMakeFiles/VisualServoing.dir/src/ip.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/src/ip.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/workspace/RoVi-2017/plugin/src/ip.cpp > CMakeFiles/VisualServoing.dir/src/ip.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/ip.cpp > CMakeFiles/VisualServoing.dir/src/ip.cpp.i
 
 CMakeFiles/VisualServoing.dir/src/ip.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/src/ip.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/workspace/RoVi-2017/plugin/src/ip.cpp -o CMakeFiles/VisualServoing.dir/src/ip.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/ip.cpp -o CMakeFiles/VisualServoing.dir/src/ip.cpp.s
 
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o.requires:
 
@@ -151,16 +179,16 @@ CMakeFiles/VisualServoing.dir/src/ip.cpp.o.provides.build: CMakeFiles/VisualServ
 
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: src/moc_VisualServoing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o -c /home/student/workspace/RoVi-2017/plugin/build/src/moc_VisualServoing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_VisualServoing.cpp
 
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/workspace/RoVi-2017/plugin/build/src/moc_VisualServoing.cpp > CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_VisualServoing.cpp > CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.i
 
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/workspace/RoVi-2017/plugin/build/src/moc_VisualServoing.cpp -o CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_VisualServoing.cpp -o CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.s
 
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o.requires:
 
@@ -175,16 +203,16 @@ CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o.provides.build: CMake
 
 CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
 CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o: src/moc_vs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o -c /home/student/workspace/RoVi-2017/plugin/build/src/moc_vs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vs.cpp
 
 CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/workspace/RoVi-2017/plugin/build/src/moc_vs.cpp > CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vs.cpp > CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.i
 
 CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/workspace/RoVi-2017/plugin/build/src/moc_vs.cpp -o CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vs.cpp -o CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.s
 
 CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o.requires:
 
@@ -197,18 +225,42 @@ CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o.provides: CMakeFiles/VisualServoi
 CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o.provides.build: CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o
 
 
+CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
+CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o: src/moc_vsMult.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vsMult.cpp
+
+CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vsMult.cpp > CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.i
+
+CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_vsMult.cpp -o CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.s
+
+CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o.requires:
+
+.PHONY : CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o.requires
+
+CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o.provides: CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o.requires
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o.provides.build
+.PHONY : CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o.provides
+
+CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o.provides.build: CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o
+
+
 CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
 CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o: src/moc_ip.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o -c /home/student/workspace/RoVi-2017/plugin/build/src/moc_ip.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_ip.cpp
 
 CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/workspace/RoVi-2017/plugin/build/src/moc_ip.cpp > CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_ip.cpp > CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.i
 
 CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/workspace/RoVi-2017/plugin/build/src/moc_ip.cpp -o CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/src/moc_ip.cpp -o CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.s
 
 CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o.requires:
 
@@ -223,16 +275,16 @@ CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o.provides.build: CMakeFiles/Visual
 
 CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o: CMakeFiles/VisualServoing.dir/flags.make
 CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o: qrc_resources.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o -c /home/student/workspace/RoVi-2017/plugin/build/qrc_resources.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o -c /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/qrc_resources.cpp
 
 CMakeFiles/VisualServoing.dir/qrc_resources.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VisualServoing.dir/qrc_resources.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/workspace/RoVi-2017/plugin/build/qrc_resources.cpp > CMakeFiles/VisualServoing.dir/qrc_resources.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/qrc_resources.cpp > CMakeFiles/VisualServoing.dir/qrc_resources.cpp.i
 
 CMakeFiles/VisualServoing.dir/qrc_resources.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VisualServoing.dir/qrc_resources.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/workspace/RoVi-2017/plugin/build/qrc_resources.cpp -o CMakeFiles/VisualServoing.dir/qrc_resources.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/qrc_resources.cpp -o CMakeFiles/VisualServoing.dir/qrc_resources.cpp.s
 
 CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o.requires:
 
@@ -249,9 +301,11 @@ CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o.provides.build: CMakeFiles/Vis
 VisualServoing_OBJECTS = \
 "CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o" \
 "CMakeFiles/VisualServoing.dir/src/vs.cpp.o" \
+"CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o" \
 "CMakeFiles/VisualServoing.dir/src/ip.cpp.o" \
 "CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o" \
 "CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o" \
+"CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o" \
 "CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o" \
 "CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o"
 
@@ -260,9 +314,11 @@ VisualServoing_EXTERNAL_OBJECTS =
 
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/src/vs.cpp.o
+../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/src/ip.cpp.o
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o
+../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/build.make
@@ -392,7 +448,7 @@ VisualServoing_EXTERNAL_OBJECTS =
 ../libs/Release/libVisualServoing.so: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.2.0
 ../libs/Release/libVisualServoing.so: /opt/ros/kinetic/lib/libopencv_core3.so.3.2.0
 ../libs/Release/libVisualServoing.so: CMakeFiles/VisualServoing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/workspace/RoVi-2017/plugin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared module ../libs/Release/libVisualServoing.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX shared module ../libs/Release/libVisualServoing.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/VisualServoing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -402,9 +458,11 @@ CMakeFiles/VisualServoing.dir/build: ../libs/Release/libVisualServoing.so
 
 CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o.requires
 CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/src/vs.cpp.o.requires
+CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o.requires
 CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/src/ip.cpp.o.requires
 CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o.requires
 CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o.requires
+CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o.requires
 CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o.requires
 CMakeFiles/VisualServoing.dir/requires: CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o.requires
 
@@ -416,8 +474,9 @@ CMakeFiles/VisualServoing.dir/clean:
 
 CMakeFiles/VisualServoing.dir/depend: src/moc_VisualServoing.cpp
 CMakeFiles/VisualServoing.dir/depend: src/moc_vs.cpp
+CMakeFiles/VisualServoing.dir/depend: src/moc_vsMult.cpp
 CMakeFiles/VisualServoing.dir/depend: src/moc_ip.cpp
 CMakeFiles/VisualServoing.dir/depend: qrc_resources.cpp
-	cd /home/student/workspace/RoVi-2017/plugin/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/workspace/RoVi-2017/plugin /home/student/workspace/RoVi-2017/plugin /home/student/workspace/RoVi-2017/plugin/build /home/student/workspace/RoVi-2017/plugin/build /home/student/workspace/RoVi-2017/plugin/build/CMakeFiles/VisualServoing.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/Desktop/workspace/RoVi-2017/pluginV1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Desktop/workspace/RoVi-2017/pluginV1 /home/student/Desktop/workspace/RoVi-2017/pluginV1 /home/student/Desktop/workspace/RoVi-2017/pluginV1/build /home/student/Desktop/workspace/RoVi-2017/pluginV1/build /home/student/Desktop/workspace/RoVi-2017/pluginV1/build/CMakeFiles/VisualServoing.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/VisualServoing.dir/depend
 

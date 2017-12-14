@@ -96,12 +96,14 @@ cv::Mat ip::drawPoints(std::vector<cv::Point2i> points, cv::Mat image, cv::Vec3b
 
 std::vector<cv::Point2i> ip::toRobotPoints(std::vector<cv::Point2i> points, cv::Mat image){
 
-    cv::Point2i UV(image.cols/2,image.rows/2);
+    cv::Point2i UV((image.cols)/2,(image.rows)/2);
     std::vector<cv::Point2i> newPoints = points;
     //std::cout << "x: " << UV.x << " y: " << UV.y << std::endl;
-    for (int i = 0; i < points.size() ; ++i) {
+    for (int i = 0; i < points.size() ; i++) {
        // std::cout << "x: " << (UV-points[i]).x << " y: " << (UV-points[i]).y << std::endl;
-        newPoints[i] = UV-points[i];
+        newPoints[i] = points[i]-UV;
+        //newPoints[i].x = -newPoints[i].x;
+        //newPoints[i].y = -newPoints[i].y;
     }
     return newPoints;
 }
@@ -161,6 +163,7 @@ std::vector<cv::Point2i> ip::marker1Function(const rw::sensor::Image& image) {
     cv::Mat im = toOpenCVImage(image);
     cv::Mat imflip;
     cv::flip(im, imflip, 0);
+    //imflip = im;
     cv::cvtColor(imflip, imflip, CV_RGB2BGR);
 
     cv::Mat segmentedBlue, segmentedRed;
@@ -205,7 +208,7 @@ std::vector<cv::Point2i> ip::marker1Function(const rw::sensor::Image& image) {
     std::vector<cv::Point2i> bluePoints = decideOnBlueMarkers(mcBlue, mcRed);
 
     if (bluePoints.size() < 3 || mcRed.size() < 1) {
-        rw::common::Log::log().info() << "Did not find enough markers" << std::endl;
+        std::cout << "Did not find enough markers" << std::endl;
         return std::vector<cv::Point2i>();
     }
 
