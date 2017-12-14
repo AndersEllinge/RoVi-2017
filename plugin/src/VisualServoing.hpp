@@ -50,7 +50,7 @@ public:
 private:
     static cv::Mat toOpenCVImage(const rw::sensor::Image& img);
     QWidget* createMarkerButtons();
-	void marker1Function(const rw::sensor::Image& image);
+    std::vector<cv::Point2i> marker1Function(const rw::sensor::Image& image);
 	void marker3Function(const rw::sensor::Image& image);
     int markerMethod;
 

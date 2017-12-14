@@ -10,7 +10,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_VisualServoing.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o"
   "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_ip.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_ip.cpp.o"
   "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_vs.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_vsMult.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o"
   "/home/student/workspace/RoVi-2017/plugin/src/vs.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/vs.cpp.o"
+  "/home/student/workspace/RoVi-2017/plugin/src/vsMult.cpp" "/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

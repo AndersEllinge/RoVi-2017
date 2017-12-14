@@ -7,7 +7,7 @@ class vs {
 
 public:
     static std::vector<double> calcUV(double focal, rw::kinematics::Frame* marker, rw::kinematics::Frame* cam,
-                                      rw::kinematics::Frame* base, rw::kinematics::State state);
+                                      rw::kinematics::State state);
 
     static rw::math::Jacobian calcImageJacobian(double u, double v, double z, double focal);
 

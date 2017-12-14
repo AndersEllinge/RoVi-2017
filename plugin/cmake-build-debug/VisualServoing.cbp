@@ -159,6 +159,12 @@
 		<Unit filename="/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_vs.cpp.rule">
 			<Option target="VisualServoing"/>
 		</Unit>
+		<Unit filename="/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_vsMult.cpp">
+			<Option target="VisualServoing"/>
+		</Unit>
+		<Unit filename="/home/student/workspace/RoVi-2017/plugin/cmake-build-debug/src/moc_vsMult.cpp.rule">
+			<Option target="VisualServoing"/>
+		</Unit>
 		<Unit filename="/home/student/workspace/RoVi-2017/plugin/src/VisualServoing.cpp">
 			<Option target="VisualServoing"/>
 		</Unit>
@@ -178,6 +184,12 @@
 			<Option target="VisualServoing"/>
 		</Unit>
 		<Unit filename="/home/student/workspace/RoVi-2017/plugin/src/vs.h">
+			<Option target="VisualServoing"/>
+		</Unit>
+		<Unit filename="/home/student/workspace/RoVi-2017/plugin/src/vsMult.cpp">
+			<Option target="VisualServoing"/>
+		</Unit>
+		<Unit filename="/home/student/workspace/RoVi-2017/plugin/src/vsMult.h">
 			<Option target="VisualServoing"/>
 		</Unit>
 		<Unit filename="/home/student/workspace/RoVi-2017/plugin/CMakeLists.txt">

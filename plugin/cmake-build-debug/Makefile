@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/student/workspace/clion-2017.2.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/student/clion-2017.2.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/student/workspace/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
+RM = /home/student/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/student/workspace/RoVi-2017/plugin/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/student/workspace/clion-2017.2.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/student/clion-2017.2.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/student/workspace/clion-2017.2.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/student/clion-2017.2.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -285,6 +285,33 @@ src/moc_vs.cpp.s:
 	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.s
 .PHONY : src/moc_vs.cpp.s
 
+src/moc_vsMult.o: src/moc_vsMult.cpp.o
+
+.PHONY : src/moc_vsMult.o
+
+# target to build an object file
+src/moc_vsMult.cpp.o:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o
+.PHONY : src/moc_vsMult.cpp.o
+
+src/moc_vsMult.i: src/moc_vsMult.cpp.i
+
+.PHONY : src/moc_vsMult.i
+
+# target to preprocess a source file
+src/moc_vsMult.cpp.i:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.i
+.PHONY : src/moc_vsMult.cpp.i
+
+src/moc_vsMult.s: src/moc_vsMult.cpp.s
+
+.PHONY : src/moc_vsMult.s
+
+# target to generate assembly for a file
+src/moc_vsMult.cpp.s:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.s
+.PHONY : src/moc_vsMult.cpp.s
+
 src/vs.o: src/vs.cpp.o
 
 .PHONY : src/vs.o
@@ -311,6 +338,33 @@ src/vs.s: src/vs.cpp.s
 src/vs.cpp.s:
 	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vs.cpp.s
 .PHONY : src/vs.cpp.s
+
+src/vsMult.o: src/vsMult.cpp.o
+
+.PHONY : src/vsMult.o
+
+# target to build an object file
+src/vsMult.cpp.o:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o
+.PHONY : src/vsMult.cpp.o
+
+src/vsMult.i: src/vsMult.cpp.i
+
+.PHONY : src/vsMult.i
+
+# target to preprocess a source file
+src/vsMult.cpp.i:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vsMult.cpp.i
+.PHONY : src/vsMult.cpp.i
+
+src/vsMult.s: src/vsMult.cpp.s
+
+.PHONY : src/vsMult.s
+
+# target to generate assembly for a file
+src/vsMult.cpp.s:
+	$(MAKE) -f CMakeFiles/VisualServoing.dir/build.make CMakeFiles/VisualServoing.dir/src/vsMult.cpp.s
+.PHONY : src/vsMult.cpp.s
 
 # Help Target
 help:
@@ -339,9 +393,15 @@ help:
 	@echo "... src/moc_vs.o"
 	@echo "... src/moc_vs.i"
 	@echo "... src/moc_vs.s"
+	@echo "... src/moc_vsMult.o"
+	@echo "... src/moc_vsMult.i"
+	@echo "... src/moc_vsMult.s"
 	@echo "... src/vs.o"
 	@echo "... src/vs.i"
 	@echo "... src/vs.s"
+	@echo "... src/vsMult.o"
+	@echo "... src/vsMult.i"
+	@echo "... src/vsMult.s"
 .PHONY : help
 
 

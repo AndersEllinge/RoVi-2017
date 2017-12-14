@@ -70,9 +70,9 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # MOC
 IF(RWS_USE_QT5)
-	QT5_WRAP_CPP(MocSrcFiles src/VisualServoing.hpp src/vs.h src/ip.h)
+	QT5_WRAP_CPP(MocSrcFiles src/VisualServoing.hpp src/vs.h src/vsMult.h src/ip.h)
 ELSE()
-	QT4_WRAP_CPP(MocSrcFiles src/VisualServoing.hpp src/vs.h src/ip.h)
+	QT4_WRAP_CPP(MocSrcFiles src/VisualServoing.hpp src/vs.h src/vsMult.h src/ip.h)
 ENDIF()
 
 # Rcc the files:
@@ -83,7 +83,7 @@ ELSE()
 ENDIF()
 
 # Add the source files to build
-SET(SrcFiles src/VisualServoing.cpp src/vs.cpp src/ip.cpp ${UIS_OUT_H})
+SET(SrcFiles src/VisualServoing.cpp src/vs.cpp src/vsMult.cpp src/ip.cpp ${UIS_OUT_H})
 
 # The shared library to build:
 ADD_LIBRARY(VisualServoing MODULE ${SrcFiles} ${MocSrcFiles}  ${RccSrcFiles})

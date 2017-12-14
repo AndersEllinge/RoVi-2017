@@ -8,6 +8,7 @@
 
 #include "vs.h"
 #include "ip.h"
+#include "vsMult.h"
 #include "opencv2/calib3d.hpp"
 #include "opencv2/features2d.hpp"
 
@@ -329,7 +330,7 @@ void VisualServoing::detectMarkers() {
 
 }
 
-void VisualServoing::marker1Function(const rw::sensor::Image& image) {
+std::vector<cv::Point2i> VisualServoing::marker1Function(const rw::sensor::Image& image) {
     // Convert to OpenCV image
     cv::Mat im = toOpenCVImage(image);
     cv::Mat imflip;
@@ -379,7 +380,7 @@ void VisualServoing::marker1Function(const rw::sensor::Image& image) {
 
     if (bluePoints.size() < 3 || mcRed.size() < 1) {
         rw::common::Log::log().info() << "Did not find enough markers" << std::endl;
-        return;
+        return std::vector<cv::Point2i>();
     }
 
     std::vector<cv::Point2i> allPoints;
@@ -401,6 +402,8 @@ void VisualServoing::marker1Function(const rw::sensor::Image& image) {
     unsigned int maxW = 400;
     unsigned int maxH = 800;
     _processedPicture->setPixmap(p.scaled(maxW, maxH, Qt::KeepAspectRatio));
+
+    return allPoints;
 }
 
 void VisualServoing::marker3Function(const rw::sensor::Image& image) {
