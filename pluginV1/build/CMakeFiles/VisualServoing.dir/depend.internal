@@ -393,6 +393,7 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCheckBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDialog
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDoubleSpinBox
@@ -410,6 +411,7 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcheckbox.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h
@@ -1197,6 +1199,7 @@ CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCheckBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDoubleSpinBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
@@ -1210,6 +1213,7 @@ CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcheckbox.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h

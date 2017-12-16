@@ -75,6 +75,8 @@ opencv2/xfeatures2d.hpp
 /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/opencv2/xfeatures2d.hpp
 QTimer
 -
+QCheckBox
+-
 QLabel
 -
 QPushButton
@@ -84,6 +86,8 @@ QToolButton
 QScrollArea
 -
 QDoubleSpinBox
+-
+fstream
 -
 
 /home/student/Desktop/workspace/RoVi-2017/pluginV1/src/ip.cpp
@@ -5054,6 +5058,10 @@ QtCore/qglobal.h
 qaction.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCheckBox
+qcheckbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcheckbox.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDialog
 qdialog.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
@@ -5140,6 +5148,10 @@ QtWidgets/qlayout.h
 QtWidgets/qwidget.h
 -
 limits.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcheckbox.h
+QtWidgets/qabstractbutton.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h

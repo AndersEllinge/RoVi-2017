@@ -153,8 +153,10 @@ QWidget* VisualServoing::createMarkerButtons(){
     containerLayout->addWidget(dT);
     containerLayout->addWidget(_deltaTSpinBox);
     containerDeltaT->setLayout(containerLayout);
-    connect(_deltaTSpinBox, SIGNAL(valueChanged()), this, SLOT(deltaTChanged()));
+    connect(_deltaTSpinBox, SIGNAL(valueChanged(double)), this, SLOT(deltaTChanged(double)));
     //
+
+    _cBox = new QCheckBox("active", this);
 
     QToolButton *btns[3];
 
@@ -170,19 +172,18 @@ QWidget* VisualServoing::createMarkerButtons(){
     btns[2]->setIcon(QIcon(":markers/Marker3.ppm"));
     btns[2]->setIconSize(QSize(65,65));
 
-    btns[3] = new QToolButton();
-    btns[3]->setIconSize(QSize(65,65));
+
 
     layout->addWidget(btns[0],0,0);
     layout->addWidget(btns[1],0,1);
     layout->addWidget(btns[2],0,2);
-    layout->addWidget(btns[3],0,3);
+    layout->addWidget(_cBox, 0, 3);
     layout->addWidget(containerDeltaT,0,4);
 
     connect(btns[0], SIGNAL(pressed()), this, SLOT(loadMarker1()));
     connect(btns[1], SIGNAL(pressed()), this, SLOT(loadMarker2()));
     connect(btns[2], SIGNAL(pressed()), this, SLOT(loadMarker3()));
-    connect(btns[3], SIGNAL(pressed()), this, SLOT(nextMarkerPosMult()));
+    connect(_cBox, SIGNAL(stateChanged(int)), this, SLOT(startSequence(int)));
 
     markerButtons->setLayout(layout);
     widg->setWidget(markerButtons);
@@ -240,6 +241,11 @@ void VisualServoing::init() {
     transformsForMarker = loadTransforms(motionFile);
     transIterator = 0;
 
+    _timer = new QTimer(this);
+    connect(_timer, SIGNAL(timeout()), this, SLOT(nextMarkerPosMult()));
+
+    trackingError.open("trackingError.csv");
+
     capture();
 }
 
@@ -262,6 +268,7 @@ void VisualServoing::loadMarker1() {
         V.push_back(v);
     }
 
+    _UV.clear();
     _UV.push_back(U);
     _UV.push_back(V);
 
@@ -320,6 +327,7 @@ void VisualServoing::loadMarker3() {
         V.push_back(v);
     }
 
+    _UV.clear();
     _UV.push_back(U);
     _UV.push_back(V);
 
@@ -340,6 +348,7 @@ void VisualServoing::loadBackground() {
     _bgRender->setImage(*image);
     getRobWorkStudio()->updateAndRepaint();
 }
+
 void VisualServoing::loadMotion() {
     QString file = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                 "/home",
@@ -347,8 +356,8 @@ void VisualServoing::loadMotion() {
     motionFile = file.toStdString();
 }
 
-void VisualServoing::deltaTChanged() {
-    deltaT = _deltaTSpinBox->value();
+void VisualServoing::deltaTChanged(double val) {
+    deltaT = val;
     std::cout << deltaT << std::endl;
 }
 
@@ -394,17 +403,27 @@ void VisualServoing::nextMarkerPosMult() {
     if (transIterator < transformsForMarker.size() - 1) {
         transIterator++;
     }
+    else {
+        if (trackingError.is_open())
+            trackingError.close();
+    }
     getRobWorkStudio()->setState(_state);
 
     // Get new points from marker
     std::vector<cv::Point2i> points;
-    if(markerInUse == 1)
+    double dt;
+    if(markerInUse == 1) {
         points = ip::marker1Function(_framegrabber->getImage());
+        dt = deltaT - 0.02033;
+    }
 
-    if(markerInUse == 3)
+    if(markerInUse == 3) {
         points = ip::marker3Function(_framegrabber->getImage(),_detector,_descriptors_object,_keypoints_object,_img_object);
+        dt = deltaT - 0.39162;
+    }
+    std::cout << "dt: " << dt << std::endl;
 
-    std::cout << "returned" << std::endl;
+    //std::cout << "returned" << std::endl;
     if(points.size() < 3)
         return;
 
@@ -438,7 +457,7 @@ void VisualServoing::nextMarkerPosMult() {
     rw::math::Q dq = vsMult::calcDqFromUV(_UV[0], _UV[1], dUV[0], dUV[1], ez, focal, _cameraFrame, _device, _state);
 
     // Add dq to device
-    dq = addVelLimits(dq, deltaT, _device);
+    dq = addVelLimits(dq, dt, _device);
     rw::math::Q newQ = _device->getQ(_state) + dq;
     _device->setQ(newQ, _state);
     getRobWorkStudio()->setState(_state);
@@ -471,11 +490,27 @@ void VisualServoing::nextMarkerPosMult() {
 
     pres = vsMult::calcDuDv( pres,_UV);
 
+    if (trackingError.is_open())
+        trackingError << deltaT * transIterator;
     rw::common::Log::log().info() << std::endl;
     for (int j = 0; j < pres[0].size(); j++) {
         rw::common::Log::log().info() << "duvp: " << pres[0][j] << ", " << pres[1][j] << std::endl;
+        if (trackingError.is_open())
+            trackingError << ", " << pres[0][j] << ", " << pres[1][j];
     }
+    if (trackingError.is_open())
+        trackingError << std::endl;
     rw::common::Log::log().info() << std::endl << "----------------------" << std::endl;
+}
+
+void VisualServoing::startSequence(int state) {
+    if (state == 2) {
+        _timer->start(deltaT*1000);
+    }
+    else {
+        _timer->stop();
+    }
+
 }
 
 std::vector<rw::math::Transform3D<>> loadTransforms(std::string file) {
@@ -505,11 +540,21 @@ rw::math::Q addVelLimits(rw::math::Q dq, double t, rw::models::Device::Ptr devic
     rw::math::Q ndq(7);
     rw::math::Q maxQ = device->getVelocityLimits();
 
+    if (t < 0.0) {
+        for (int i = 0; i < ndq.size(); ++i) {
+            ndq[i] = 0;
+        }
+        return ndq;
+    }
+
     for (int i = 0; i < ndq.size(); ++i) {
-        if ((dq[i] / t) >= maxQ[i]) {
-            //std::cout << "vel lim: " << maxQ << std::endl;
+        if ((fabs(dq[i]) / t) >= maxQ[i]) {
+            std::cout << "vel lim: " << maxQ << std::endl;
             //std::cout << "dq / t:  " << dq / t << std::endl;
-            ndq[i] = (maxQ[i] * t);
+            if (dq[i] > 0)
+                ndq[i] = (maxQ[i] * t);
+            else
+                ndq[i] = -(maxQ[i] * t);
         }
         else {
             ndq[i] = dq[i];

@@ -20,11 +20,14 @@
 
 //QT
 #include <QTimer>
+#include <QCheckBox>
 #include <QLabel>
 #include <QPushButton>
 #include <QToolButton>
 #include <QScrollArea>
 #include <QDoubleSpinBox>
+
+#include <fstream>
 
 
 class VisualServoing: public rws::RobWorkStudioPlugin
@@ -56,6 +59,7 @@ private:
     rw::models::WorkCell* _workcell;
 
     QTimer* _timer;
+    QCheckBox* _cBox;
     QWidget* _markerButtons;
     QLabel* _camPicture;
     QLabel* _processedPicture;
@@ -75,13 +79,15 @@ private:
 	rw::kinematics::Frame* _base;
 	rw::models::Device::Ptr _device;
 
+	std::ofstream trackingError;
+
     std::vector<std::vector<double>> _UV;
 	std::vector<double> _UVs;
     std::vector<rw::math::Transform3D<>> transformsForMarker;
     std::string motionFile = "/home/student/workspace/RoVi-2017/pluginV1/motions/MarkerMotionFast.txt";
     int transIterator;
 	int markerInUse;
-    double deltaT = 1;
+    double deltaT = 0.5;
 
 private slots:
     void stateChangedListener(const rw::kinematics::State& state);
@@ -94,7 +100,8 @@ private slots:
     void loadMotion();
 	void nextMarkerPos();
     void nextMarkerPosMult();
-	void deltaTChanged();
+	void deltaTChanged(double val);
+    void startSequence(int state);
 };
 
 #endif
