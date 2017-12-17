@@ -194,7 +194,7 @@ QWidget* VisualServoing::createMarkerButtons(){
 void VisualServoing::init() {
 
     // Auto load workcell
-    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/student/Desktop/workspace/PA10WorkCell/ScenePA10RoVi1.wc.xml");
+    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/student/Desktop/workspace/finalProject/PA10WorkCell/ScenePA10RoVi1.wc.xml");
     getRobWorkStudio()->setWorkCell(wc);
 
     rw::sensor::Image textureImage(300,300, rw::sensor::Image::GRAY, rw::sensor::Image::Depth8U);
@@ -252,7 +252,7 @@ void VisualServoing::init() {
 }
 
 void VisualServoing::loadMarker1() {
-    rw::sensor::Image::Ptr image = rw::loaders::ImageLoader::Factory::load("/home/student/workspace/RoVi-2017/plugin/markers/Marker1.ppm");
+    rw::sensor::Image::Ptr image = rw::loaders::ImageLoader::Factory::load("/home/student/workspace/finalProject/pluginFinalProject/markers/Marker1.ppm");
     _textureRender->setImage(*image);
     getRobWorkStudio()->updateAndRepaint();
     capture();
@@ -281,30 +281,17 @@ void VisualServoing::loadMarker1() {
 }
 
 void VisualServoing::loadMarker2() {
-    cv::Point2i p1 = {1, 1};
-    cv::Point2i p2 = {249, 249};
-    cv::Point2i p3 = {1, 249};
-    cv::Point2i p4 = {249, 1};
-    std::vector<cv::Point2i> p = {p1, p2, p3, p4};
-    _img_object = imread("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm",cv::IMREAD_COLOR);
-    if(_img_object.empty())
-        std::cout << "Failed imread(): image not found" << std::endl;
-    p = ip::toRobotPoints(p, _img_object);
-
-    rw::common::Log::log().info() << "s: " << _img_object.cols << ", " << _img_object.rows << std::endl;
-    for (int k = 0; k < p.size(); k++) {
-        rw::common::Log::log().info() << "x: " << p[k].x << " y: " << p[k].y << std::endl;
-    }
+   
 }
 
 void VisualServoing::loadMarker3() {
-    rw::sensor::Image::Ptr image = rw::loaders::ImageLoader::Factory::load("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm");
+    rw::sensor::Image::Ptr image = rw::loaders::ImageLoader::Factory::load("/home/student/workspace/finalProject/pluginFinalProject/markers/Marker3.ppm");
     _textureRender->setImage(*image);
     getRobWorkStudio()->updateAndRepaint();
     capture();
 
     //load mat for the corner marker
-    _img_object = imread("/home/student/workspace/RoVi-2017/plugin/markers/Marker3.ppm",cv::IMREAD_COLOR);
+    _img_object = imread("/home/student/workspace/finalProject/pluginFinalProject/markers/Marker3.ppm",cv::IMREAD_COLOR);
     if(_img_object.empty())
         std::cout << "Failed imread(): image not found" << std::endl;
 

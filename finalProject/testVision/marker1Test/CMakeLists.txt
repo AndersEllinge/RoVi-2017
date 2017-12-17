@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8.11)
+project(marker1)
+set(CMAKE_CXX_STANDARD 11)
+find_package(OpenCV 3 REQUIRED)
+add_executable(marker1 src/marker1.cpp)
+target_link_libraries(marker1 ${OpenCV_LIBS})

@@ -86,7 +86,7 @@ private:
     std::vector<std::vector<double>> _UV;
 	std::vector<double> _UVs;
     std::vector<rw::math::Transform3D<>> transformsForMarker;
-    std::string motionFile = "/home/student/workspace/RoVi-2017/pluginV1/motions/MarkerMotionFast.txt";
+    std::string motionFile = "/home/student/workspace/finalProject/pluginFinalProject/motions/MarkerMotionFast.txt";
     int transIterator;
 	int markerInUse;
     double deltaT = 0.5;
