@@ -4,6 +4,7 @@ The final project has been devided into 3 section:
 2) The test of the robotics part is contained in the folder called testRobotics
 3) The plugin for the combined test is contained in the folder called pluginFinalProject
 4) The WorkCell provided with the project
+5) The report for this project
 
 A ReadMe file is contained in each of folder describing how to compile and run the tests.
 
