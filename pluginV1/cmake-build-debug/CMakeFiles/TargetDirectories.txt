@@ -1,3 +1,0 @@
-/home/student/workspace/RoVi-2017/pluginV1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/student/workspace/RoVi-2017/pluginV1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/student/workspace/RoVi-2017/pluginV1/cmake-build-debug/CMakeFiles/VisualServoing.dir
