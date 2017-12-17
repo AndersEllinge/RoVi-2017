@@ -80,6 +80,8 @@ private:
 	rw::models::Device::Ptr _device;
 
 	std::ofstream trackingError;
+	std::ofstream robotq;
+    std::ofstream robotdq;
 
     std::vector<std::vector<double>> _UV;
 	std::vector<double> _UVs;

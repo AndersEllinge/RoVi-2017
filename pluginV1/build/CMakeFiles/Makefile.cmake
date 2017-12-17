@@ -7,11 +7,6 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "../CMakeLists.txt"
-  "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
-  "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.5.1/CMakeSystem.cmake"
-  "../src/resources.qrc"
   "/home/student/RobWork/RobWork/cmake/RobWorkBuildConfig_release.cmake"
   "/home/student/RobWork/RobWork/cmake/RobWorkConfig.cmake"
   "/home/student/RobWork/RobWork/cmake/RobWorkConfigVersion.cmake"
@@ -19,6 +14,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/student/RobWork/RobWorkStudio/cmake/RobWorkStudioConfig.cmake"
   "/home/student/RobWork/RobWorkStudio/cmake/RobWorkStudioConfigVersion.cmake"
   "/home/student/RobWork/RobWorkStudio/cmake/RobWorkStudioMacros.cmake"
+  "../CMakeLists.txt"
+  "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
+  "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.5.1/CMakeSystem.cmake"
+  "../src/resources.qrc"
   "/opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVConfig-version.cmake"
   "/opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVConfig.cmake"
   "/opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVModules-none.cmake"

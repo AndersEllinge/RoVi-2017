@@ -245,6 +245,8 @@ void VisualServoing::init() {
     connect(_timer, SIGNAL(timeout()), this, SLOT(nextMarkerPosMult()));
 
     trackingError.open("trackingError.csv");
+    robotq.open("robotQ.csv");
+    robotdq.open("robotdQ.csv");
 
     capture();
 }
@@ -406,6 +408,10 @@ void VisualServoing::nextMarkerPosMult() {
     else {
         if (trackingError.is_open())
             trackingError.close();
+        if (robotq.is_open())
+            robotq.close();
+        if (robotdq.is_open())
+            robotdq.close();
     }
     getRobWorkStudio()->setState(_state);
 
@@ -421,7 +427,7 @@ void VisualServoing::nextMarkerPosMult() {
         points = ip::marker3Function(_framegrabber->getImage(),_detector,_descriptors_object,_keypoints_object,_img_object);
         dt = deltaT - 0.39162;
     }
-    std::cout << "dt: " << dt << std::endl;
+    //std::cout << "dt: " << dt << std::endl;
 
     //std::cout << "returned" << std::endl;
     if(points.size() < 3)
@@ -456,12 +462,23 @@ void VisualServoing::nextMarkerPosMult() {
     // Calc dq
     rw::math::Q dq = vsMult::calcDqFromUV(_UV[0], _UV[1], dUV[0], dUV[1], ez, focal, _cameraFrame, _device, _state);
 
+    if (robotq.is_open())
+        robotq << deltaT * transIterator << "," << _device->getQ(_state)[0] << "," << _device->getQ(_state)[1] << "," << _device->getQ(_state)[2]
+                << "," << _device->getQ(_state)[3] << "," << _device->getQ(_state)[4] << "," << _device->getQ(_state)[5] << "," << _device->getQ(_state)[6] << std::endl;
+
     // Add dq to device
+    //std::cout << "dq: " << dq << std::endl;
     dq = addVelLimits(dq, dt, _device);
+    //std::cout << "dqv: " << dq << std::endl;
+    //std::cout << "dt/dq: " << dt/dq << std::endl;
     rw::math::Q newQ = _device->getQ(_state) + dq;
     _device->setQ(newQ, _state);
     getRobWorkStudio()->setState(_state);
     //rw::common::Log::log().info() << std::endl << "dq: " << dq << std::endl;
+
+    if (robotdq.is_open())
+        robotdq << deltaT * transIterator << "," << dq[0]/dt << "," << dq[1]/dt << "," << dq[2]/dt << "," <<
+                dq[3]/dt << "," << dq[4]/dt << "," << dq[5]/dt << "," << dq[6]/dt << std::endl;
 
     // Calc precision
     std::vector<cv::Point2i> pointsp;
@@ -539,6 +556,8 @@ std::vector<rw::math::Transform3D<>> loadTransforms(std::string file) {
 rw::math::Q addVelLimits(rw::math::Q dq, double t, rw::models::Device::Ptr device) {
     rw::math::Q ndq(7);
     rw::math::Q maxQ = device->getVelocityLimits();
+    std::cout << "maxQ: " << maxQ << std::endl;
+
 
     if (t < 0.0) {
         for (int i = 0; i < ndq.size(); ++i) {

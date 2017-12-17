@@ -3,11 +3,6 @@
 
 CMakeFiles/VisualServoing.dir/qrc_resources.cpp.o: qrc_resources.cpp
 
-CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/VisualServoing.cpp
-CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/VisualServoing.hpp
-CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/ip.h
-CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/vs.h
-CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/vsMult.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /home/student/RobWork/RobWork/cmake/../src/RobWorkConfig.hpp
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/./kinematics/FKRange.hpp
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/./kinematics/FKTable.hpp
@@ -156,6 +151,11 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /home/student/RobWork/Ro
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /home/student/RobWork/RobWorkStudio/cmake/../src/rws/RWStudioView3D.hpp
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /home/student/RobWork/RobWorkStudio/cmake/../src/rws/RobWorkStudio.hpp
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /home/student/RobWork/RobWorkStudio/cmake/../src/rws/RobWorkStudioPlugin.hpp
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/VisualServoing.cpp
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/VisualServoing.hpp
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/ip.h
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/vs.h
+CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: ../src/vsMult.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cxcore.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/calib3d.hpp
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/calib3d/calib3d_c.h
@@ -709,8 +709,6 @@ CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/local/include/eigen
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 CMakeFiles/VisualServoing.dir/src/VisualServoing.cpp.o: /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
-CMakeFiles/VisualServoing.dir/src/ip.cpp.o: ../src/ip.cpp
-CMakeFiles/VisualServoing.dir/src/ip.cpp.o: ../src/ip.h
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/common/AnyPtr.hpp
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/common/Event.hpp
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/common/Exception.hpp
@@ -731,6 +729,8 @@ CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /home/student/RobWork/RobWork/cmake/
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/loaders/ImageLoader.hpp
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/math_fwd.hpp
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/sensor/Image.hpp
+CMakeFiles/VisualServoing.dir/src/ip.cpp.o: ../src/ip.cpp
+CMakeFiles/VisualServoing.dir/src/ip.cpp.o: ../src/ip.h
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cxcore.h
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/calib3d.hpp
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/calib3d/calib3d_c.h
@@ -859,8 +859,6 @@ CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /opt/ros/kinetic/include/opencv-3.2.
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/VisualServoing.dir/src/ip.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/xfeatures2d/nonfree.hpp
 
-CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: src/moc_VisualServoing.cpp
-CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: ../src/VisualServoing.hpp
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /home/student/RobWork/RobWork/cmake/../src/RobWorkConfig.hpp
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/RobWork.hpp
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/common/AnyPtr.hpp
@@ -960,6 +958,8 @@ CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /home/student/RobWor
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /home/student/RobWork/RobWorkStudio/cmake/../src/rws/RWStudioView3D.hpp
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /home/student/RobWork/RobWorkStudio/cmake/../src/rws/RobWorkStudio.hpp
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /home/student/RobWork/RobWorkStudio/cmake/../src/rws/RobWorkStudioPlugin.hpp
+CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: src/moc_VisualServoing.cpp
+CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: ../src/VisualServoing.hpp
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cxcore.h
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/calib3d.hpp
 CMakeFiles/VisualServoing.dir/src/moc_VisualServoing.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/calib3d/calib3d_c.h
@@ -1512,8 +1512,6 @@ CMakeFiles/VisualServoing.dir/src/moc_vs.cpp.o: src/moc_vs.cpp
 
 CMakeFiles/VisualServoing.dir/src/moc_vsMult.cpp.o: src/moc_vsMult.cpp
 
-CMakeFiles/VisualServoing.dir/src/vs.cpp.o: ../src/vs.cpp
-CMakeFiles/VisualServoing.dir/src/vs.cpp.o: ../src/vs.h
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /home/student/RobWork/RobWork/cmake/../ext/boostbindings/boost/numeric/bindings/lapack/geev.hpp
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /home/student/RobWork/RobWork/cmake/../ext/boostbindings/boost/numeric/bindings/lapack/gesvd.hpp
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /home/student/RobWork/RobWork/cmake/../ext/boostbindings/boost/numeric/bindings/lapack/lapack.h
@@ -1728,6 +1726,8 @@ CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /home/student/RobWork/RobWork/cmake/
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/trajectory/Timed.hpp
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/trajectory/Trajectory.hpp
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/trajectory/TrajectoryIterator.hpp
+CMakeFiles/VisualServoing.dir/src/vs.cpp.o: ../src/vs.cpp
+CMakeFiles/VisualServoing.dir/src/vs.cpp.o: ../src/vs.h
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /usr/local/include/eigen3/Eigen/Cholesky
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /usr/local/include/eigen3/Eigen/Core
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /usr/local/include/eigen3/Eigen/Dense
@@ -2010,9 +2010,6 @@ CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /usr/local/include/eigen3/Eigen/src/
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 CMakeFiles/VisualServoing.dir/src/vs.cpp.o: /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
-CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: ../src/vs.h
-CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: ../src/vsMult.cpp
-CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: ../src/vsMult.h
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /home/student/RobWork/RobWork/cmake/../ext/boostbindings/boost/numeric/bindings/lapack/geev.hpp
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /home/student/RobWork/RobWork/cmake/../ext/boostbindings/boost/numeric/bindings/lapack/gesvd.hpp
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /home/student/RobWork/RobWork/cmake/../ext/boostbindings/boost/numeric/bindings/lapack/lapack.h
@@ -2227,6 +2224,9 @@ CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /home/student/RobWork/RobWork/cm
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/trajectory/Timed.hpp
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/trajectory/Trajectory.hpp
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /home/student/RobWork/RobWork/cmake/../src/rw/trajectory/TrajectoryIterator.hpp
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: ../src/vs.h
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: ../src/vsMult.cpp
+CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: ../src/vsMult.h
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /usr/local/include/eigen3/Eigen/Cholesky
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /usr/local/include/eigen3/Eigen/Core
 CMakeFiles/VisualServoing.dir/src/vsMult.cpp.o: /usr/local/include/eigen3/Eigen/Dense
